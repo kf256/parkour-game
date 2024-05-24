@@ -24,7 +24,7 @@ class Obstacle {
     draw() {
         // will be embellished later
         ctx.fillStyle = "black";
-        ctx.fillRect(this.x*50, this.y*50, 50, 50);
+        ctx.fillRect(this.x, this.y, 1, 1);
     }
     
     static list = [];
@@ -60,7 +60,7 @@ function update() {
     time = Date.now();
     
     // clear everything that was visible before
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width/50, canvas.height/50);
     
     // draw the obstacles
     Obstacle.draw();
@@ -74,7 +74,7 @@ function update() {
     
     // draw the player character
     ctx.fillStyle = "yellow";
-    ctx.fillRect(posX*50, posY*50, 50, 50);
+    ctx.fillRect(posX, posY, 1, 1);
     
     // call update() again for the next frame
     requestAnimationFrame(update);
@@ -84,4 +84,7 @@ function update() {
 function updateCanvasSize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    
+    // scale the contents of the canvas to make drawing easier
+    ctx.scale(50);
 }

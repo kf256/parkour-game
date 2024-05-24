@@ -1,9 +1,17 @@
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
 
-// position of the player character
+// time of the last update
+let time;
+
+// time between the updates
+let delay;
+
+// position and velocity of the player character
 let posX = 0;
 let posY = 0;
+let velX = 0;
+let velY = 0;
 
 class Obstacle {
     constructor(x, y) {
@@ -34,7 +42,9 @@ function main() {
     addEventListener("resize", updateCanvasSize);
     
     // add a first obstacle
-    new Obstacle(0, 1);
+    new Obstacle(0, 2);
+    
+    time = Date.now();
     
     // time to start the game: draw the very first frame
     update();
@@ -42,11 +52,25 @@ function main() {
 
 // this function draws every frame
 function update() {
+    // calculate the time between the last and this update
+    delay = Date.now()-time;
+    delay /= 1000; // convert to seconds
+    
+    // save this update's time
+    time = Date.now();
+    
     // clear everything that was visible before
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
     // draw the obstacles
     Obstacle.draw();
+    
+    // calculate gravitation
+    velY += delay;
+    
+    // update the position
+    posX += velX*delay;
+    posY += velY*delay;
     
     // draw the player character
     ctx.fillStyle = "yellow";

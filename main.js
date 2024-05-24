@@ -86,5 +86,5 @@ function updateCanvasSize() {
     canvas.height = window.innerHeight;
     
     // scale the contents of the canvas to make drawing easier
-    ctx.scale(50);
+    ctx.scale(50, 50);
 }

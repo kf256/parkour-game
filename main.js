@@ -21,7 +21,6 @@ class Obstacle {
     
     static list = [];
     static draw() {
-        console.log(this);
         for (let i = 0; i < this.list.length; i++) this.list[i].draw();
     }
 }

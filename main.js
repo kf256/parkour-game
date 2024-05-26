@@ -159,3 +159,24 @@ function updateCanvasSize() {
     // scale the contents of the canvas to make drawing easier
     ctx.scale(50, 50);
 }
+
+addEventListener("keydown", (evt) => {
+    switch (evt.key) {
+        case "ArrowLeft": {
+            if (speedX > -1) speedX -= delay;
+            break;
+        }
+        case "ArrowRight": {
+            if (speedX < 1) speedX += delay;
+            break;
+        }
+        case "ArrowUp": {
+            if (speedY > -1) speedY -= delay;
+            break;
+        }
+        case "ArrowDown": {
+            if (speedY < 1) speedY += delay;
+            break;
+        }
+    }
+});

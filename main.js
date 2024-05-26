@@ -44,9 +44,9 @@ class Obstacle {
         ctx.fillRect(this.x, this.y, 1, 1);
     }
     checkCollisions() {
+        /*
         const borders = this.borders;
         
-        /*
         // continue if the position is not within the obstacle
         if (x < borders.left ) continue; // too far left
         if (x > borders.right) continue; // too far right

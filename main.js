@@ -59,9 +59,7 @@ class Obstacle {
         if (Math.random() < 0.1 && posY < 5) console.log(maxDist);
         if (maxDist > 0) return;
         
-        let minDist = Math.min(...Object.values(dist));
-        
-        switch (minDist) {
+        switch (maxDist) {
             case dist.top: {
                 posY -= dist.top;
                 velY = 0;

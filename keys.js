@@ -1,5 +1,5 @@
 // information about which arrow keys are pressed
-let arrows = {
+export const arrows = {
     up: false,
     down: false,
     left: false,

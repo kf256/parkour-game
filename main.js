@@ -21,7 +21,7 @@ class Obstacle {
         this.index = Obstacle.list.length;
         Obstacle.list.push(this);
     }
-    get borders {
+    get borders() {
         return {
             left:  this.list[i].x,
             right: this.list[i].x+1,

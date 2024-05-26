@@ -21,6 +21,8 @@ class Obstacle {
         this.index = Obstacle.list.length;
         Obstacle.list.push(this);
     }
+    
+    // get the borders of the obstacle
     get borders() {
         return {
             left:  this.x,
@@ -29,6 +31,8 @@ class Obstacle {
             down:  this.y+1,
         };
     }
+    
+    // get the distance between the player and the obstacle in all four directions
     get dist() {
         const borders = this.borders;
         return {
@@ -38,26 +42,23 @@ class Obstacle {
             down:  (posY)-borders.down,
         };
     }
+    
+    // draw the obstacle
     draw() {
         // will be embellished later
         ctx.fillStyle = "black";
         ctx.fillRect(this.x, this.y, 1, 1);
     }
+    
+    // calculate collisions of the player with the obstacle
     checkCollisions() {
-        /*
-        const borders = this.borders;
-        
-        // continue if the position is not within the obstacle
-        if (x < borders.left ) continue; // too far left
-        if (x > borders.right) continue; // too far right
-        if (y < borders.up   ) continue; // too far up
-        if (y > borders.down ) continue; // too far down
-        */
-        
         const dist = this.dist;
         let maxDist = Math.max(...Object.values(dist));
+        
+        // return if the player character is not touching the obstacle
         if (maxDist > 0) return;
         
+        // see which side of the obstacle the player collided with
         switch (maxDist) {
             case dist.up: {
                 posY += dist.up;
@@ -82,11 +83,11 @@ class Obstacle {
         }
     }
     
-    static list = [];
-    static draw() {
+    static list = []; // list containing all the obstacles
+    static draw() { // draw all obstacles
         for (let i = 0; i < this.list.length; i++) this.list[i].draw();
     }
-    static checkCollisions() {
+    static checkCollisions() { // calculate collisions of the player with obstacles
         for (let i = 0; i < this.list.length; i++) this.list[i].checkCollisions();
     }
 }

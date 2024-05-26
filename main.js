@@ -63,22 +63,22 @@ class Obstacle {
         switch (minDist) {
             case dist.top: {
                 posY -= dist.top;
-                speedY = 0;
+                velY = 0;
                 break;
             }
             case dist.bottom: {
                 posY += dist.bottom;
-                speedY = 0;
+                velY = 0;
                 break;
             }
             case dist.left: {
                 posX -= dist.left;
-                speedX = 0;
+                velX = 0;
                 break;
             }
             case dist.right: {
                 posX += dist.right;
-                speedX = 0;
+                velX = 0;
                 break;
             }
         }

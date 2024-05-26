@@ -60,13 +60,13 @@ class Obstacle {
         if (maxDist > 0) return;
         
         switch (maxDist) {
-            case dist.top: {
-                posY -= dist.top;
+            case dist.up: {
+                posY -= dist.up;
                 velY = 0;
                 break;
             }
-            case dist.bottom: {
-                posY += dist.bottom;
+            case dist.down: {
+                posY += dist.down;
                 velY = 0;
                 break;
             }

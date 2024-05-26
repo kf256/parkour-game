@@ -21,15 +21,75 @@ class Obstacle {
         this.index = Obstacle.list.length;
         Obstacle.list.push(this);
     }
+    get borders {
+        return {
+            left:  this.list[i].x,
+            right: this.list[i].x+1,
+            up:    this.list[i].y,
+            down:  this.list[i].y+1,
+        };
+    }
+    dist(x, y) {
+        const borders = this.borders;
+        return {
+            left:  borders.left-x,
+            right: x-borders.right,
+            up:    borders.up-y,
+            down:  y-borders.down,
+        };
+    }
     draw() {
         // will be embellished later
         ctx.fillStyle = "black";
         ctx.fillRect(this.x, this.y, 1, 1);
     }
+    checkCollisions() {
+        const borders = this.list[i].borders;
+        
+        /*
+        // continue if the position is not within the obstacle
+        if (x < borders.left ) continue; // too far left
+        if (x > borders.right) continue; // too far right
+        if (y < borders.up   ) continue; // too far up
+        if (y > borders.down ) continue; // too far down
+        */
+        
+        const dist = this.list[i].dist(posX, posY);
+        let maxDist = Math.max(...Object.values(dist));
+        if (maxDist > 0) return;
+        
+        let minDist = Math.min(...Object.values(dist));
+        
+        switch (minDist) {
+            case dist.top: {
+                posY -= dist.top;
+                speedY = 0;
+                break;
+            }
+            case dist.bottom: {
+                posY += dist.bottom;
+                speedY = 0;
+                break;
+            }
+            case dist.left: {
+                posX -= dist.left;
+                speedX = 0;
+                break;
+            }
+            case dist.right: {
+                posX += dist.right;
+                speedX = 0;
+                break;
+            }
+        }
+    }
     
     static list = [];
     static draw() {
         for (let i = 0; i < this.list.length; i++) this.list[i].draw();
+    }
+    static checkCollisions() {
+        for (let i = 0; i < this.list.length; i++) this.list[i].checkCollisions();
     }
 }
 
@@ -59,12 +119,6 @@ function update() {
     // save this update's time
     time = Date.now();
     
-    // clear everything that was visible before
-    ctx.clearRect(0, 0, canvas.width/50, canvas.height/50);
-    
-    // draw the obstacles
-    Obstacle.draw();
-    
     // calculate gravitation
     velY += delay;
     
@@ -72,12 +126,25 @@ function update() {
     posX += velX*delay;
     posY += velY*delay;
     
-    // draw the player character
-    ctx.fillStyle = "yellow";
-    ctx.fillRect(posX, posY, 1, 1);
+    // calculate collisions with the obstackles
+    Obstacle.checkCollisions();
+    
+    // draw everything
+    draw();
     
     // call update() again for the next frame
     requestAnimationFrame(update);
+}
+function draw() {
+    // clear everything that was visible before
+    ctx.clearRect(0, 0, canvas.width/50, canvas.height/50);
+    
+    // draw the obstacles
+    Obstacle.draw();
+    
+    // draw the player character
+    ctx.fillStyle = "yellow";
+    ctx.fillRect(posX, posY, 1, 1);
 }
 
 // resize the canvas to fill the entire screen

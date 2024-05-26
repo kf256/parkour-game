@@ -56,6 +56,7 @@ class Obstacle {
         
         const dist = this.dist;
         let maxDist = Math.max(...Object.values(dist));
+        if (Math.random() < 0.1 && posY < 5) console.log(maxDist);
         if (maxDist > 0) return;
         
         let minDist = Math.min(...Object.values(dist));

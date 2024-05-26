@@ -29,13 +29,13 @@ class Obstacle {
             down:  this.y+1,
         };
     }
-    dist(x, y) {
+    dist() {
         const borders = this.borders;
         return {
-            left:  borders.left-x,
-            right: x-borders.right,
-            up:    borders.up-y,
-            down:  y-borders.down,
+            left:  borders.left-(posX+1),
+            right: (posX)-borders.right,
+            up:    borders.up-(posY+1),
+            down:  (posY)-borders.down,
         };
     }
     draw() {
@@ -54,7 +54,7 @@ class Obstacle {
         if (y > borders.down ) continue; // too far down
         */
         
-        const dist = this.dist(posX, posY);
+        const dist = this.dist();
         let maxDist = Math.max(...Object.values(dist));
         if (maxDist > 0) return;
         

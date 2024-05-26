@@ -44,7 +44,7 @@ class Obstacle {
         ctx.fillRect(this.x, this.y, 1, 1);
     }
     checkCollisions() {
-        const borders = this.list[i].borders;
+        const borders = this.borders;
         
         /*
         // continue if the position is not within the obstacle
@@ -54,7 +54,7 @@ class Obstacle {
         if (y > borders.down ) continue; // too far down
         */
         
-        const dist = this.list[i].dist(posX, posY);
+        const dist = this.dist(posX, posY);
         let maxDist = Math.max(...Object.values(dist));
         if (maxDist > 0) return;
         

@@ -11,10 +11,12 @@ let time;
 let delay;
 
 // position and velocity of the player character
-let posX = 0;
-let posY = 0;
-let velX = 0;
-let velY = 0;
+let player = {
+    posX: 0,
+    posY: 0,
+    velX: 0,
+    velY: 0,
+};
 
 main();
 
@@ -48,17 +50,17 @@ function update() {
     time = Date.now();
     
     // control the speed by using the keys
-    if (arrows.left)  if (velX > -1) velX -= delay*5;
-    if (arrows.right) if (velX <  1) velX += delay*5;
-    if (arrows.up)    if (velY > -1) velY -= delay*5;
-    if (arrows.down)  if (velY <  1) velY += delay*5;
+    if (arrows.left)  if (player.velX > -1) player.velX -= delay*5;
+    if (arrows.right) if (player.velX <  1) player.velX += delay*5;
+    if (arrows.up)    if (player.velY > -1) player.velY -= delay*5;
+    if (arrows.down)  if (player.velY <  1) player.velY += delay*5;
     
     // calculate gravitation
-    velY += delay;
+    player.velY += delay;
     
     // update the position
-    posX += velX*delay;
-    posY += velY*delay;
+    player.posX += player.velX*delay;
+    player.posY += player.velY*delay;
     
     // calculate collisions with the obstackles
     Obstacle.checkCollisions();
@@ -78,7 +80,7 @@ function draw() {
     
     // draw the player character
     ctx.fillStyle = "yellow";
-    ctx.fillRect(posX, posY, 1, 1);
+    ctx.fillRect(player.posX, player.posY, 1, 1);
 }
 
 // resize the canvas to fill the entire screen

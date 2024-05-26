@@ -17,14 +17,14 @@ export class Obstacle {
         };
     }
     
-    // get the distance between the player and the obstacle in all four directions
-    get dist() {
+    // get the distance between a character and the obstacle in all four directions
+    dist(character) {
         const borders = this.borders;
         return {
-            left:  borders.left-(posX+1),
-            right: (posX)-borders.right,
-            up:    borders.up-(posY+1),
-            down:  (posY)-borders.down,
+            left:  borders.left-(character.posX+1),
+            right: (character.posX)-borders.right,
+            up:    borders.up-(character.posY+1),
+            down:  (character.posY)-borders.down,
         };
     }
     
@@ -35,34 +35,34 @@ export class Obstacle {
         ctx.fillRect(this.x, this.y, 1, 1);
     }
     
-    // calculate collisions of the player with the obstacle
-    checkCollisions() {
-        const dist = this.dist;
+    // calculate collisions of a character with the obstacle
+    checkCollisions(character) {
+        const dist = this.dist(character);
         let maxDist = Math.max(...Object.values(dist));
         
-        // return if the player character is not touching the obstacle
+        // return if the character is not touching the obstacle
         if (maxDist > 0) return;
         
-        // see which side of the obstacle the player collided with
+        // see which side of the obstacle the character collided with
         switch (maxDist) {
             case dist.up: {
-                posY += dist.up;
-                velY = 0;
+                character.posY += dist.up;
+                character.velY = 0;
                 break;
             }
             case dist.down: {
-                posY -= dist.down;
-                velY = 0;
+                character.posY -= dist.down;
+                character.velY = 0;
                 break;
             }
             case dist.left: {
-                posX += dist.left;
-                velX = 0;
+                character.posX += dist.left;
+                character.velX = 0;
                 break;
             }
             case dist.right: {
-                posX -= dist.right;
-                velX = 0;
+                character.posX -= dist.right;
+                character.velX = 0;
                 break;
             }
         }
@@ -72,7 +72,7 @@ export class Obstacle {
     static draw() { // draw all obstacles
         for (let i = 0; i < this.list.length; i++) this.list[i].draw();
     }
-    static checkCollisions() { // calculate collisions of the player with obstacles
-        for (let i = 0; i < this.list.length; i++) this.list[i].checkCollisions();
+    static checkCollisions(character) { // calculate collisions of a character with obstacles
+        for (let i = 0; i < this.list.length; i++) this.list[i].checkCollisions(character);
     }
 }

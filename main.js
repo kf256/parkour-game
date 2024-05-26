@@ -10,7 +10,7 @@ let time;
 // time between the updates
 let delay;
 
-// position and velocity of the player character
+// object containing information about the player character
 let player = {
     posX: 0,
     posY: 0,
@@ -63,7 +63,7 @@ function update() {
     player.posY += player.velY*delay;
     
     // calculate collisions with the obstackles
-    Obstacle.checkCollisions();
+    Obstacle.checkCollisions(player);
     
     // draw everything
     draw();

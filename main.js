@@ -100,8 +100,13 @@ function main() {
     // update the size whenever the page is resized
     addEventListener("resize", updateCanvasSize);
     
-    // add a first obstacle
+    // add some obstacles
     new Obstacle(0, 2);
+    new Obstacle(3, 1);
+    new Obstacle(2, 3);
+    new Obstacle(4, 5);
+    new Obstacle(6, 3);
+    new Obstacle(8, 2);
     
     time = Date.now();
     

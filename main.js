@@ -123,6 +123,12 @@ function update() {
     // save this update's time
     time = Date.now();
     
+    // control the speed by using the keys
+    if (arrows.left)  if (velX > -1) velX -= delay*5;
+    if (arrows.right) if (velX <  1) velX += delay*5;
+    if (arrows.up)    if (velY > -1) velY -= delay*5;
+    if (arrows.down)  if (velY <  1) velY += delay*5;
+    
     // calculate gravitation
     velY += delay;
     
@@ -160,22 +166,51 @@ function updateCanvasSize() {
     ctx.scale(50, 50);
 }
 
+// information about which arrow keys are pressed
+let arrows = {
+    up: false,
+    down: false,
+    left: false,
+    right: false,
+};
+
+// event listeners updating the arrows object
 addEventListener("keydown", (evt) => {
     switch (evt.key) {
         case "ArrowLeft": {
-            if (velX > -1) velX -= delay*5;
+            arrows.left = true;
             break;
         }
         case "ArrowRight": {
-            if (velX < 1) velX += delay*5;
+            arrows.right = true;
             break;
         }
         case "ArrowUp": {
-            if (velY > -1) velY -= delay*5;
+            arrows.up = true;
             break;
         }
         case "ArrowDown": {
-            if (velY < 1) velY += delay*5;
+            arrows.down = true;
+            break;
+        }
+    }
+});
+addEventListener("keyup", (evt) => {
+    switch (evt.key) {
+        case "ArrowLeft": {
+            arrows.left = false;
+            break;
+        }
+        case "ArrowRight": {
+            arrows.right = false;
+            break;
+        }
+        case "ArrowUp": {
+            arrows.up = false;
+            break;
+        }
+        case "ArrowDown": {
+            arrows.down = false;
             break;
         }
     }

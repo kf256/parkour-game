@@ -23,10 +23,10 @@ class Obstacle {
     }
     get borders() {
         return {
-            left:  this.list[i].x,
-            right: this.list[i].x+1,
-            up:    this.list[i].y,
-            down:  this.list[i].y+1,
+            left:  this.x,
+            right: this.x+1,
+            up:    this.y,
+            down:  this.y+1,
         };
     }
     dist(x, y) {

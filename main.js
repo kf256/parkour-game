@@ -163,19 +163,19 @@ function updateCanvasSize() {
 addEventListener("keydown", (evt) => {
     switch (evt.key) {
         case "ArrowLeft": {
-            if (velX > -1) velX -= delay;
+            if (velX > -1) velX -= delay*5;
             break;
         }
         case "ArrowRight": {
-            if (velX < 1) velX += delay;
+            if (velX < 1) velX += delay*5;
             break;
         }
         case "ArrowUp": {
-            if (velY > -1) velY -= delay;
+            if (velY > -1) velY -= delay*5;
             break;
         }
         case "ArrowDown": {
-            if (velY < 1) velY += delay;
+            if (velY < 1) velY += delay*5;
             break;
         }
     }

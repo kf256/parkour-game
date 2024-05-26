@@ -29,7 +29,7 @@ export class Obstacle {
     }
     
     // draw the obstacle
-    draw() {
+    draw(ctx) {
         // will be embellished later
         ctx.fillStyle = "black";
         ctx.fillRect(this.x, this.y, 1, 1);
@@ -69,8 +69,8 @@ export class Obstacle {
     }
     
     static list = []; // list containing all the obstacles
-    static draw() { // draw all obstacles
-        for (let i = 0; i < this.list.length; i++) this.list[i].draw();
+    static draw(ctx) { // draw all obstacles
+        for (let i = 0; i < this.list.length; i++) this.list[i].draw(ctx);
     }
     static checkCollisions(character) { // calculate collisions of a character with obstacles
         for (let i = 0; i < this.list.length; i++) this.list[i].checkCollisions(character);

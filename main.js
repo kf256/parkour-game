@@ -76,7 +76,7 @@ function draw() {
     ctx.clearRect(0, 0, canvas.width/50, canvas.height/50);
     
     // draw the obstacles
-    Obstacle.draw();
+    Obstacle.draw(ctx);
     
     // draw the player character
     ctx.fillStyle = "yellow";

@@ -25,6 +25,9 @@ let player = {
     climb: false,
 };
 
+let jumpSpeed = 10; // speed at the beginning of a jump
+let controlAcceleration = 20; // controls how fast the player can accelerate without jumping
+
 // test
 addEventListener("click", () => player.climb = true);
 
@@ -61,7 +64,7 @@ function update() {
     time = Date.now();
     
     // calculate gravitation
-    player.velY += delay*2;
+    player.velY += delay*5;
     
     // update the position
     player.posX += player.velX*delay;
@@ -81,32 +84,32 @@ function update() {
     // control the speed by using the keys
     if (arrows.left) {
         if (player.climb) {
-            if (player.touching.left) player.velX = -3;
-            if (player.touching.up || player.touching.down) if (player.velX > -1) player.velX -= delay*5;
+            if (player.touching.left) player.velX = -jumpSpeed;
+            if (player.touching.up || player.touching.down) player.velX -= delay*controlAcceleration;
         } else {
-            if (player.touching.up) if (player.velX > -1) player.velX -= delay*5;
+            if (player.touching.up) if (player.velX > -1) player.velX -= delay*controlAcceleration;
         }
     }
     if (arrows.right) {
         if (player.climb) {
-            if (player.touching.right) player.velX = 3;
-            if (player.touching.up || player.touching.down) if (player.velX < 1) player.velX += delay*5;
+            if (player.touching.right) player.velX = jumpSpeed;
+            if (player.touching.up || player.touching.down) player.velX += delay*controlAcceleration;
         } else {
-            if (player.touching.up) if (player.velX < 1) player.velX += delay*5;
+            if (player.touching.up) if (player.velX < 1) player.velX += delay*controlAcceleration;
         }
     }
     if (arrows.up) {
         if (player.climb) {
-            if (player.touching.up) player.velY = -3;
-            if (player.touching.left || player.touching.right) if (player.velY > -1) player.velY -= delay*5;
+            if (player.touching.up) player.velY = -jumpSpeed;
+            if (player.touching.left || player.touching.right) player.velY -= delay*controlAcceleration;
         } else {
-            if (player.touching.up) player.velY = -3;
+            if (player.touching.up) player.velY = -jumpSpeed;
         }
     }
     if (arrows.down) {
         if (player.climb) {
-            if (player.touching.down) player.velY = 3;
-            if (player.touching.left || player.touching.right) if (player.velY < 1) player.velY += delay*5;
+            if (player.touching.down) player.velY = jumpSpeed;
+            if (player.touching.left || player.touching.right) player.velY += delay*controlAcceleration;
         }
     }
     

@@ -146,7 +146,7 @@ function draw() {
     
     // draw the player character
     ctx.fillStyle = "yellow";
-    ctx.fillRect(player.posX, player.posY, 1, 1);
+    ctx.fillRect(player.posX, player.posY, player.width, player.height);
     
     // call draw() again for the next frame
     requestAnimationFrame(draw);

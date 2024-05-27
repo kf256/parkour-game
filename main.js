@@ -25,7 +25,7 @@ let player = {
     climb: false,
 };
 
-let gravitation = 3;
+let gravitation = 10;
 let jumpSpeed = 5; // speed at the beginning of a jump
 let controlAcceleration = 20; // controls how fast the player can accelerate without jumping
 

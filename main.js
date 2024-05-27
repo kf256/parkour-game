@@ -55,6 +55,7 @@ function update() {
     // calculate the time between the last and this update
     delay = Date.now()-time;
     delay /= 1000; // convert to seconds
+    if (delay > 0.2) delay = 0.2; // limit the delay, so the game pauses when the tab is inactive
     
     // save this update's time
     time = Date.now();

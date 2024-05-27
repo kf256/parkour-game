@@ -16,6 +16,8 @@ let player = {
     posY: 0,
     velX: 0,
     velY: 0,
+    width: 0.5,
+    height: 0.9,
     touching: {
         up: false,
         down: false,

@@ -21,9 +21,9 @@ export class Obstacle {
     dist(character) {
         const borders = this.borders;
         return {
-            left:  borders.left-(character.posX+1),
+            left:  borders.left-(character.posX+character.width),
             right: (character.posX)-borders.right,
-            up:    borders.up-(character.posY+1),
+            up:    borders.up-(character.posY+character.height),
             down:  (character.posY)-borders.down,
         };
     }

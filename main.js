@@ -51,8 +51,11 @@ function main() {
     
     time = Date.now();
     
-    // time to start the game: draw the very first frame
+    // start updating the positions
     update();
+    
+    // time to start the game: draw the very first frame
+    draw();
 }
 
 // this function draws every frame
@@ -129,11 +132,8 @@ function update() {
         }
     }
     
-    // draw everything
-    draw();
-    
-    // call update() again for the next frame
-    requestAnimationFrame(update);
+    // call update() again as soom as possible
+    setTimeout(update, 0);
 }
 function draw() {
     // clear everything that was visible before
@@ -145,6 +145,9 @@ function draw() {
     // draw the player character
     ctx.fillStyle = "yellow";
     ctx.fillRect(player.posX, player.posY, 1, 1);
+    
+    // call draw() again for the next frame
+    requestAnimationFrame(draw);
 }
 
 // resize the canvas to fill the entire screen

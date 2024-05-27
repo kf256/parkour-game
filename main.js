@@ -44,12 +44,12 @@ function main() {
     addEventListener("resize", updateCanvasSize);
     
     // add some obstacles
-    new Obstacle(0, 2);
-    new Obstacle(3, 1);
-    new Obstacle(2, 3);
-    new Obstacle(4, 5);
-    new Obstacle(6, 3);
-    new Obstacle(8, 2);
+    new Obstacle(0, 2, 2, 2);
+    new Obstacle(3, 1, 1, 2);
+    new Obstacle(2, 3, 2, 2);
+    new Obstacle(4, 4, 3, 1);
+    new Obstacle(6, 3, 1, 3);
+    new Obstacle(7, 2, 2, 1);
     
     time = Date.now();
     

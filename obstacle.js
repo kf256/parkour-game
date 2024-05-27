@@ -1,7 +1,9 @@
 export class Obstacle {
-    constructor(x, y) {
+    constructor(x, y, width = 1, height = 1) {
         this.x = x;
         this.y = y;
+        this.width = width;
+        this.height = height;
         
         this.index = Obstacle.list.length;
         Obstacle.list.push(this);

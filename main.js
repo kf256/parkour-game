@@ -16,6 +16,12 @@ let player = {
     posY: 0,
     velX: 0,
     velY: 0,
+    touching: {
+        up: false,
+        down: false,
+        left: false,
+        right: false,
+    },
 };
 
 main();
@@ -49,12 +55,6 @@ function update() {
     // save this update's time
     time = Date.now();
     
-    // control the speed by using the keys
-    if (arrows.left)  if (player.velX > -1) player.velX -= delay*5;
-    if (arrows.right) if (player.velX <  1) player.velX += delay*5;
-    if (arrows.up)    if (player.velY > -1) player.velY -= delay*5;
-    if (arrows.down)  if (player.velY <  1) player.velY += delay*5;
-    
     // calculate gravitation
     player.velY += delay;
     
@@ -62,8 +62,34 @@ function update() {
     player.posX += player.velX*delay;
     player.posY += player.velY*delay;
     
-    // calculate collisions with the obstackles
+    // reset player.touching
+    player.touching = {
+        up: false,
+        down: false,
+        left: false,
+        right: false,
+    };
+    
+    // calculate collisions with the obstacles and update player.touching
     Obstacle.checkCollisions(player);
+    
+    // control the speed by using the keys
+    if (arrows.left) {
+        if (player.touching.left) player.velX = -2;
+        if (player.touching.up || player.touching.down) if (player.velX > -2) player.velX -= delay*5;
+    }
+    if (arrows.right) {
+        if (player.touching.right) player.velX = 2;
+        if (player.touching.up || player.touching.down) if (player.velX < 2) player.velX += delay*5;
+    }
+    if (arrows.up) {
+        if (player.touching.up) player.velY = -2;
+        if (player.touching.left || player.touching.right) if (player.velY > -2) player.velY -= delay*5;
+    }
+    if (arrows.down) {
+        if (player.touching.down) player.velY = 2;
+        if (player.touching.left || player.touching.right) if (player.velY < 2) player.velY += delay*5;
+    }
     
     // draw everything
     draw();

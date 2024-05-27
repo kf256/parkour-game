@@ -48,25 +48,25 @@ export class Obstacle {
             case dist.up: {
                 character.posY += dist.up;
                 character.velY = 0;
-                player.touching.up = true;
+                character.touching.up = true;
                 break;
             }
             case dist.down: {
                 character.posY -= dist.down;
                 character.velY = 0;
-                player.touching.down = true;
+                character.touching.down = true;
                 break;
             }
             case dist.left: {
                 character.posX += dist.left;
                 character.velX = 0;
-                player.touching.left = true;
+                character.touching.left = true;
                 break;
             }
             case dist.right: {
                 character.posX -= dist.right;
                 character.velX = 0;
-                player.touching.right = true;
+                character.touching.right = true;
                 break;
             }
         }

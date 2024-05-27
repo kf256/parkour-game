@@ -25,7 +25,8 @@ let player = {
     climb: false,
 };
 
-let jumpSpeed = 10; // speed at the beginning of a jump
+let gravitation = 3;
+let jumpSpeed = 5; // speed at the beginning of a jump
 let controlAcceleration = 20; // controls how fast the player can accelerate without jumping
 
 // test
@@ -64,7 +65,7 @@ function update() {
     time = Date.now();
     
     // calculate gravitation
-    player.velY += delay*5;
+    player.velY += delay*gravitation;
     
     // update the position
     player.posX += player.velX*delay;

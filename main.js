@@ -89,7 +89,7 @@ function update() {
             if (player.touching.left) player.velX = -jumpSpeed;
             if (player.touching.up || player.touching.down) player.velX -= delay*controlAcceleration;
         } else {
-            if (player.touching.up) if (player.velX > -1) player.velX -= delay*controlAcceleration;
+            if (player.touching.up) player.velX -= delay*controlAcceleration;
         }
     }
     if (arrows.right) {
@@ -97,7 +97,7 @@ function update() {
             if (player.touching.right) player.velX = jumpSpeed;
             if (player.touching.up || player.touching.down) player.velX += delay*controlAcceleration;
         } else {
-            if (player.touching.up) if (player.velX < 1) player.velX += delay*controlAcceleration;
+            if (player.touching.up) player.velX += delay*controlAcceleration;
         }
     }
     if (arrows.up) {

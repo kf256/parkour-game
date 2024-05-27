@@ -61,7 +61,7 @@ function update() {
     time = Date.now();
     
     // calculate gravitation
-    player.velY += delay;
+    player.velY += delay*2;
     
     // update the position
     player.posX += player.velX*delay;

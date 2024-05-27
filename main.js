@@ -109,6 +109,14 @@ function update() {
         }
     }
     
+    // simulate friction
+    if (player.touching.up || player.touching.down) {
+        player.velX /= 2**delay;
+    }
+    if (player.touching.left || player.touching.right) {
+        player.velY /= 2**delay;
+    }
+    
     // draw everything
     draw();
     

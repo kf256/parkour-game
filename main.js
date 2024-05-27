@@ -1,4 +1,4 @@
-import {arrows} from "./keys.js";
+import {arrows} from "./control.js";
 import {Obstacle} from "./obstacle.js";
 
 const canvas = document.querySelector("#canvas");

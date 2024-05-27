@@ -22,7 +22,11 @@ let player = {
         left: false,
         right: false,
     },
+    climb: false,
 };
+
+// test
+addEventListener("click", () => player.climb = true);
 
 main();
 
@@ -75,20 +79,34 @@ function update() {
     
     // control the speed by using the keys
     if (arrows.left) {
-        if (player.touching.left) player.velX = -2;
-        if (player.touching.up || player.touching.down) if (player.velX > -2) player.velX -= delay*5;
+        if (player.climb) {
+            if (player.touching.left) player.velX = -3;
+            if (player.touching.up || player.touching.down) if (player.velX > -1) player.velX -= delay*5;
+        } else {
+            if (player.touching.up) if (player.velX > -1) player.velX -= delay*5;
+        }
     }
     if (arrows.right) {
-        if (player.touching.right) player.velX = 2;
-        if (player.touching.up || player.touching.down) if (player.velX < 2) player.velX += delay*5;
+        if (player.climb) {
+            if (player.touching.right) player.velX = 3;
+            if (player.touching.up || player.touching.down) if (player.velX < 1) player.velX += delay*5;
+        } else {
+            if (player.touching.up) if (player.velX < 1) player.velX += delay*5;
+        }
     }
     if (arrows.up) {
-        if (player.touching.up) player.velY = -2;
-        if (player.touching.left || player.touching.right) if (player.velY > -2) player.velY -= delay*5;
+        if (player.climb) {
+            if (player.touching.up) player.velY = -3;
+            if (player.touching.left || player.touching.right) if (player.velY > -1) player.velY -= delay*5;
+        } else {
+            if (player.touching.up) player.velY = -3;
+        }
     }
     if (arrows.down) {
-        if (player.touching.down) player.velY = 2;
-        if (player.touching.left || player.touching.right) if (player.velY < 2) player.velY += delay*5;
+        if (player.climb) {
+            if (player.touching.down) player.velY = 3;
+            if (player.touching.left || player.touching.right) if (player.velY < 1) player.velY += delay*5;
+        }
     }
     
     // draw everything

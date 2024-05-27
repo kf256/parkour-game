@@ -13,9 +13,9 @@ export class Obstacle {
     get borders() {
         return {
             left:  this.x,
-            right: this.x+1,
+            right: this.x+this.width,
             up:    this.y,
-            down:  this.y+1,
+            down:  this.y+this.height,
         };
     }
     
@@ -34,7 +34,7 @@ export class Obstacle {
     draw(ctx) {
         // will be embellished later
         ctx.fillStyle = "black";
-        ctx.fillRect(this.x, this.y, 1, 1);
+        ctx.fillRect(this.x, this.y, this.width, this.height);
     }
     
     // calculate collisions of a character with the obstacle

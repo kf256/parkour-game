@@ -12,8 +12,8 @@ let delay;
 
 // object containing information about the player character
 let player = {
-    posX: 0,
-    posY: 0,
+    posX: 1,
+    posY: 1,
     velX: 0,
     velY: 0,
     width: 0.9,
@@ -61,7 +61,7 @@ function main() {
     new Obstacle(10,  0,  1, 12);
     new Obstacle( 2,  8,  8,  1);
     new Obstacle( 1, 11,  9,  1);
-    new Obstacle( 0,  0,  1, 11);
+    new Obstacle( 0,  0,  1, 12);
     
     // calculate target.borders
     target.borders = {

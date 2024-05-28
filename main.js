@@ -52,15 +52,16 @@ function main() {
     addEventListener("resize", updateCanvasSize);
     
     // add some obstacles
-    new Obstacle(0, 2, 2, 1);
-    new Obstacle(3, 1, 1, 2);
-    new Obstacle(1, 3, 3, 1);
-    new Obstacle(3, 4, 4, 1);
-    new Obstacle(6, 3, 1, 2);
-    new Obstacle(7, 2, 1, 2);
-    new Obstacle(9, 0, 1, 8);
-    new Obstacle(1, 7, 8, 1);
-    new Obstacle(0, 9, 9, 1);
+    new Obstacle( 1,  3,  2,  1);
+    new Obstacle( 4,  2,  1,  2);
+    new Obstacle( 2,  4,  3,  1);
+    new Obstacle( 4,  5,  4,  1);
+    new Obstacle( 7,  4,  1,  2);
+    new Obstacle( 8,  3,  1,  2);
+    new Obstacle(10,  0,  1, 12);
+    new Obstacle( 2,  8,  8,  1);
+    new Obstacle( 1, 11,  9,  1);
+    new Obstacle( 0,  0,  1, 11);
     
     // calculate target.borders
     target.borders = {

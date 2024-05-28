@@ -34,8 +34,8 @@ let controlAcceleration = 20; // controls how fast the player can accelerate wit
 
 // position and size of the target
 let target = {
-    posX: 8,
-    posY: 9,
+    posX: 9,
+    posY: 10,
     width: 1,
     height: 1,
 };

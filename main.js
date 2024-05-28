@@ -46,13 +46,13 @@ function main() {
     // add some obstacles
     new Obstacle(0, 2, 2, 1);
     new Obstacle(3, 1, 1, 2);
-    new Obstacle(2, 3, 2, 2);
-    new Obstacle(4, 4, 3, 1);
+    new Obstacle(1, 3, 3, 1);
+    new Obstacle(3, 4, 4, 1);
     new Obstacle(6, 3, 1, 2);
-    new Obstacle(7, 2, 2, 1);
-    new Obstacle(8, 0, 1, 5);
-    new Obstacle(1, 6, 7, 1);
-    new Obstacle(0, 9, 20, 1);
+    new Obstacle(7, 2, 1, 2);
+    new Obstacle(9, 0, 1, 8);
+    new Obstacle(1, 7, 8, 1);
+    new Obstacle(0, 9, 9, 1);
     
     time = Date.now();
     

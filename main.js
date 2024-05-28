@@ -32,6 +32,14 @@ let friction = 3;
 let jumpSpeed = 7; // speed at the beginning of a jump
 let controlAcceleration = 20; // controls how fast the player can accelerate without jumping
 
+// position and size of the target
+let target = {
+    posX: 8,
+    posY: 9,
+    width: 1,
+    height: 1,
+};
+
 // test
 addEventListener("click", () => player.climb = true);
 
@@ -53,6 +61,14 @@ function main() {
     new Obstacle(9, 0, 1, 8);
     new Obstacle(1, 7, 8, 1);
     new Obstacle(0, 9, 9, 1);
+    
+    // calculate target.borders
+    target.borders = {
+        left:  target.posX,
+        right: target.posX+target.width,
+        up:    target.posY,
+        down:  target.posY+target.height,
+    };
     
     time = Date.now();
     
@@ -137,6 +153,18 @@ function update() {
         }
     }
     
+    // calculate the distances to the target
+    target.dist = {
+        left:  target.borders.left-(player.posX+player.width),
+        right: (player.posX)-target.borders.right,
+        up:    target.borders.up-(player.posY+player.height),
+        down:  (player.posY)-target.borders.down,
+    }
+    
+    // check if the user won
+    let maxTargetDist = Math.max(...Object.values(target.dist));
+    if (maxTargetDist <= 0) console.log("You won! Well done!");
+    
     // call update() again as soom as possible
     setTimeout(update, 0);
 }
@@ -146,6 +174,10 @@ function draw() {
     
     // draw the obstacles
     Obstacle.draw(ctx);
+    
+    // draw the target
+    ctx.fillStyle = "green";
+    ctx.fillRect(target.posX, target.posY, target.width, target.height);
     
     // draw the player character
     ctx.fillStyle = "yellow";

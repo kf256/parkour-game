@@ -59,12 +59,12 @@ function main() {
     new Obstacle( 7,  4,  1,  2);
     new Obstacle( 8,  3,  1,  2);
     new Obstacle( 0,  0,  1, 14);
-    new Obstacle(12,  0,  1, 14);
+    new Obstacle(13,  0,  1, 14);
     new Obstacle( 4,  9,  9,  1);
     new Obstacle( 1, 11,  1,  2);
-    new Obstacle(10,  7,  1,  2);
-    new Obstacle(11,  5,  1,  4);
-    new Obstacle( 1, 13, 11,  1);
+    new Obstacle(11,  7,  1,  2);
+    new Obstacle(12,  5,  1,  4);
+    new Obstacle( 1, 13, 12,  1);
     
     // calculate target.borders
     target.borders = {

@@ -4,6 +4,8 @@ import {Obstacle} from "./obstacle.js";
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
 
+let gameStatus = "running";
+
 // time of the last update
 let time;
 
@@ -168,13 +170,19 @@ function update() {
     
     // check if the user won
     let maxTargetDist = Math.max(...Object.values(target.dist));
-    if (maxTargetDist <= 0) console.log("You won! Well done!");
+    if (maxTargetDist <= 0) {
+        console.log("You won! Well done!");
+        gameStatus = "won";
+    }
     
     // check if the user lost
-    if (player.posY > maxY) console.log("Oh, no! You lost. Never mind! Try again!");
+    if (player.posY > maxY) {
+        console.log("Oh, no! You lost. Never mind! Try again!");
+        gameStatus = "lost";
+    }
     
     // call update() again as soom as possible
-    setTimeout(update, 0);
+    if (gameStatus === "running") setTimeout(update, 0);
 }
 function draw() {
     // clear everything that was visible before
@@ -192,7 +200,7 @@ function draw() {
     ctx.fillRect(player.posX, player.posY, player.width, player.height);
     
     // call draw() again for the next frame
-    requestAnimationFrame(draw);
+    if (gameStatus === "running") requestAnimationFrame(draw);
 }
 
 // resize the canvas to fill the entire screen

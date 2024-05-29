@@ -31,6 +31,7 @@ let gravitation = 10;
 let friction = 3;
 let jumpSpeed = 7; // speed at the beginning of a jump
 let controlAcceleration = 20; // controls how fast the player can accelerate without jumping
+let maxY = 14; // maximum depth of the player character (bigger Y position means lower height)
 
 // position and size of the target
 let target = {
@@ -168,6 +169,9 @@ function update() {
     // check if the user won
     let maxTargetDist = Math.max(...Object.values(target.dist));
     if (maxTargetDist <= 0) console.log("You won! Well done!");
+    
+    // check if the user lost
+    if (player.posY > maxY) console.log("Oh, no! You lost. Never mind! Try again!");
     
     // call update() again as soom as possible
     setTimeout(update, 0);

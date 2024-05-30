@@ -49,7 +49,7 @@ addEventListener("keyup", (evt) => {
 });
 
 let buttons = {
-    up: document.getElementById("button_up");
+    up: document.getElementById("button_up"),
 };
 
 buttons.up.addEventListener("pointerdown",  () => arrows.up = true);

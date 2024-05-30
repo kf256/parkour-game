@@ -47,3 +47,11 @@ addEventListener("keyup", (evt) => {
         }
     }
 });
+
+let buttons = {
+    up: document.getElementById("button_up");
+};
+
+buttons.up.addEventListener("pointerdown",  () => arrows.up = true);
+buttons.up.addEventListener("pointerup",    () => arrows.up = false);
+buttons.up.addEventListener("pointerleave", () => arrows.up = false);

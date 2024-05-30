@@ -49,9 +49,21 @@ addEventListener("keyup", (evt) => {
 });
 
 let buttons = {
-    up: document.getElementById("button_up"),
+    left:  document.getElementById("button_left"),
+    right: document.getElementById("button_right"),
+    up:    document.getElementById("button_up"),
+    down:  document.getElementById("button_down"),
 };
 
-buttons.up.addEventListener("pointerdown",  () => arrows.up = true);
-buttons.up.addEventListener("pointerup",    () => arrows.up = false);
-buttons.up.addEventListener("pointerleave", () => arrows.up = false);
+buttons.left .addEventListener("pointerdown",  () => arrows.left  = true);
+buttons.left .addEventListener("pointerup",    () => arrows.left  = false);
+buttons.left .addEventListener("pointerleave", () => arrows.left  = false);
+buttons.right.addEventListener("pointerdown",  () => arrows.right = true);
+buttons.right.addEventListener("pointerup",    () => arrows.right = false);
+buttons.right.addEventListener("pointerleave", () => arrows.right = false);
+buttons.up   .addEventListener("pointerdown",  () => arrows.up    = true);
+buttons.up   .addEventListener("pointerup",    () => arrows.up    = false);
+buttons.up   .addEventListener("pointerleave", () => arrows.up    = false);
+buttons.down .addEventListener("pointerdown",  () => arrows.down  = true);
+buttons.down .addEventListener("pointerup",    () => arrows.down  = false);
+buttons.down .addEventListener("pointerleave", () => arrows.down  = false);

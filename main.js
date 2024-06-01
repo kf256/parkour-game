@@ -4,8 +4,7 @@ import {Obstacle} from "./obstacle.js";
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
 
-let gameStatus = "running";
-let gameVisible = true;
+let gameStatus, gameVisible;
 
 // time of the last update
 let time;
@@ -67,16 +66,25 @@ for (let i = navigator.languages.length-1; i >= 0; i--) {
     updateStrings(navigator.languages[i]);
 }
 
-// set the title of the page
-document.title = strings.title;
-
 main();
 
 function main() {
+    // set the title of the page
+    document.title = strings.title;
+    
     // set the correct size of the canvas
     updateCanvasSize();
     // update the size whenever the page is resized
     addEventListener("resize", updateCanvasSize);
+    
+    // automatically start the game
+    startGame();
+}
+
+function startGame() {
+    
+    gameStatus = "running";
+    gameVisible = true;
     
     // add some obstacles
     new Obstacle( 1,  3,  2,  1);

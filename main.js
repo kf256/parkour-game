@@ -62,6 +62,7 @@ addEventListener("click", function(evt) {
                 document.getElementById("buttons").style.display = "none";
                 document.getElementById("messages").innerHTML = "";
                 document.getElementById("messages").style.backgroundColor = "#0000";
+                ctx.clearRect(0, 0, canvas.width/50, canvas.height/50);
             }
             break;
         case "menu":

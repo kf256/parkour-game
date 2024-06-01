@@ -93,7 +93,7 @@ function main() {
     addEventListener("resize", updateCanvasSize);
     
     // draw the menu
-    menu();
+    drawMenu();
 }
 
 function startGame() {

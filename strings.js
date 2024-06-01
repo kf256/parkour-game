@@ -1,7 +1,7 @@
 // lists of strings in various languages
 const languages = {};
-languages.en = {title: "Parkour game", won: "You won! Well done!", lost: "Oh, no! You lost. Never mind! Try again!"};
-languages.de = {title: "Parkourspiel", won: "Du hast gewonnen! Gut gemacht!", lost: "Oh, nein! Du hast verloren. Aber das macht nichts! Versuch's doch noch mal!"};
+languages.en = {start: "start the game", title: "Parkour game", won: "You won! Well done!", lost: "Oh, no! You lost. Never mind! Try again!"};
+languages.de = {start: "Spiel starten", title: "Parkourspiel", won: "Du hast gewonnen! Gut gemacht!", lost: "Oh, nein! Du hast verloren. Aber das macht nichts! Versuch's doch noch mal!"};
 
 // object that will contain various texts in the player's language
 const strings = {};

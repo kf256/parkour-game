@@ -62,6 +62,7 @@ addEventListener("click", function(evt) {
                 document.getElementById("buttons").style.display = "none";
                 document.getElementById("messages").innerHTML = "";
                 document.getElementById("messages").style.backgroundColor = "#0000";
+                document.getElementById("menu").style.display = "";
                 ctx.clearRect(0, 0, canvas.width/50, canvas.height/50);
             }
             break;
@@ -79,7 +80,7 @@ function drawMenu() {
     menu.innerHTML = "";
     
     let button = document.createElement("button");
-    button.innerHTML = "start the game";
+    button.innerHTML = strings.start;
     button.style.fontSize = "2vw";
     button.addEventListener("click", function() {
         gameStatus = "running";
@@ -108,6 +109,7 @@ function startGame() {
     gameVisible = true;
     
     document.getElementById("buttons").style.display = "";
+    document.getElementById("menu").style.display = "none";
     
     // add some obstacles
     new Obstacle( 1,  3,  2,  1);

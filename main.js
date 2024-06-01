@@ -5,7 +5,7 @@ const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
 
 let gameStatus = "running";
-let updateGame = true;
+let gameVisible = true;
 
 // time of the last update
 let time;
@@ -104,14 +104,14 @@ function main() {
     time = Date.now();
     
     // start updating the positions
-    update();
+    updateGame();
     
     // time to start the game: draw the very first frame
     drawGame();
 }
 
 // this function draws every frame
-function update() {
+function updateGame() {
     // calculate the time between the last and this update
     delay = Date.now()-time;
     delay /= 1000; // convert to seconds
@@ -215,8 +215,8 @@ function update() {
         }
     }
     
-    // call update() again as soon as possible
-    if (updateGame) setTimeout(update, 0);
+    // call updateGame() again as soon as possible
+    if (gameVisible) setTimeout(updateGame, 0);
 }
 function drawGame() {
     // clear everything that was visible before
@@ -239,7 +239,7 @@ function drawGame() {
     }
     
     // call drawGame() again for the next frame
-    if (updateGame) requestAnimationFrame(drawGame);
+    if (gameVisible) requestAnimationFrame(drawGame);
 }
 
 // resize the canvas to fill the entire screen

@@ -5,6 +5,7 @@ const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
 
 let gameStatus = "running";
+let updateGame = true;
 
 // time of the last update
 let time;
@@ -211,7 +212,7 @@ function update() {
     }
     
     // call update() again as soon as possible
-    if (gameStatus === "running") setTimeout(update, 0);
+    if (updateGame) setTimeout(update, 0);
 }
 function draw() {
     // clear everything that was visible before
@@ -234,7 +235,7 @@ function draw() {
     }
     
     // call draw() again for the next frame
-    requestAnimationFrame(draw);
+    if (updateGame) requestAnimationFrame(draw);
 }
 
 // resize the canvas to fill the entire screen

@@ -181,7 +181,7 @@ function update() {
         gameStatus = "lost";
     }
     
-    // call update() again as soom as possible
+    // call update() again as soon as possible
     if (gameStatus === "running") setTimeout(update, 0);
 }
 function draw() {

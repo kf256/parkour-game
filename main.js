@@ -139,34 +139,36 @@ function update() {
     Obstacle.checkCollisions(player);
     
     // control the speed by using the keys
-    if (arrows.left) {
-        if (player.climb) {
-            if (player.touching.left) player.velX = -jumpSpeed;
-            if (player.touching.up || player.touching.down) player.velX -= delay*controlAcceleration;
-        } else {
-            if (player.touching.up) player.velX -= delay*controlAcceleration;
+    if (gameStatus === "running") {
+        if (arrows.left) {
+            if (player.climb) {
+                if (player.touching.left) player.velX = -jumpSpeed;
+                if (player.touching.up || player.touching.down) player.velX -= delay*controlAcceleration;
+            } else {
+                if (player.touching.up) player.velX -= delay*controlAcceleration;
+            }
         }
-    }
-    if (arrows.right) {
-        if (player.climb) {
-            if (player.touching.right) player.velX = jumpSpeed;
-            if (player.touching.up || player.touching.down) player.velX += delay*controlAcceleration;
-        } else {
-            if (player.touching.up) player.velX += delay*controlAcceleration;
+        if (arrows.right) {
+            if (player.climb) {
+                if (player.touching.right) player.velX = jumpSpeed;
+                if (player.touching.up || player.touching.down) player.velX += delay*controlAcceleration;
+            } else {
+                if (player.touching.up) player.velX += delay*controlAcceleration;
+            }
         }
-    }
-    if (arrows.up) {
-        if (player.climb) {
-            if (player.touching.up) player.velY = -jumpSpeed;
-            if (player.touching.left || player.touching.right) player.velY -= delay*controlAcceleration;
-        } else {
-            if (player.touching.up) player.velY = -jumpSpeed;
+        if (arrows.up) {
+            if (player.climb) {
+                if (player.touching.up) player.velY = -jumpSpeed;
+                if (player.touching.left || player.touching.right) player.velY -= delay*controlAcceleration;
+            } else {
+                if (player.touching.up) player.velY = -jumpSpeed;
+            }
         }
-    }
-    if (arrows.down) {
-        if (player.climb) {
-            if (player.touching.down) player.velY = jumpSpeed;
-            if (player.touching.left || player.touching.right) player.velY += delay*controlAcceleration;
+        if (arrows.down) {
+            if (player.climb) {
+                if (player.touching.down) player.velY = jumpSpeed;
+                if (player.touching.left || player.touching.right) player.velY += delay*controlAcceleration;
+            }
         }
     }
     
@@ -192,23 +194,25 @@ function update() {
         down:  (player.posY)-target.borders.down,
     }
     
-    // check if the user won
-    let maxTargetDist = Math.max(...Object.values(target.dist));
-    if (maxTargetDist <= 0) {
-        gameStatus = "won";
-        document.getElementById("messages").style.backgroundColor = "#8888";
-        document.getElementById("messages").innerHTML = strings.won;
-        document.getElementById("messages").style.opacity = 0;
-        messageTime = Date.now();
-    }
-    
-    // check if the user lost
-    if (player.posY > maxY) {
-        gameStatus = "lost";
-        document.getElementById("messages").style.backgroundColor = "#8888";
-        document.getElementById("messages").innerHTML = strings.lost;
-        document.getElementById("messages").style.opacity = 0;
-        messageTime = Date.now();
+    if (gameStatus === "running") {
+        // check if the player won
+        let maxTargetDist = Math.max(...Object.values(target.dist));
+        if (maxTargetDist <= 0) {
+            gameStatus = "won";
+            document.getElementById("messages").style.backgroundColor = "#8888";
+            document.getElementById("messages").innerHTML = strings.won;
+            document.getElementById("messages").style.opacity = 0;
+            messageTime = Date.now();
+        }
+        
+        // check if the player lost
+        if (player.posY > maxY) {
+            gameStatus = "lost";
+            document.getElementById("messages").style.backgroundColor = "#8888";
+            document.getElementById("messages").innerHTML = strings.lost;
+            document.getElementById("messages").style.opacity = 0;
+            messageTime = Date.now();
+        }
     }
     
     // call update() again as soon as possible

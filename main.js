@@ -49,6 +49,26 @@ let target = {
 // test
 addEventListener("click", () => player.climb = true);
 
+// create the object "strings" that contains various texts in the player's language
+const languages = {};
+languages.en = {title: "Parkour game", won: "You won! Well done!", lost: "Oh, no! You lost. Never mind! Try again!"};
+languages.de = {title: "Parkourspiel", won: "Du hast gewonnen! Gut gemacht!", lost: "Oh, nein! Du hast verloren. Aber das macht nichts! Versuch's doch noch mal!"};
+const strings = {};
+function updateStrings(language) {
+    if (languages[language] === undefined) language = language.slice(0, 2);
+    if (languages[language] === undefined) return;
+    const keys = Object.keys(languages[language]);
+    for (let i = 0; i < keys.length; i++) {
+        strings[keys[i]] = languages[language][keys[i]];
+    }
+}
+for (let i = navigator.languages.length-1; i >= 0; i--) {
+    updateStrings(navigator.languages[i]);
+}
+
+// set the title of the page
+document.title = strings.title;
+
 main();
 
 function main() {
@@ -176,7 +196,7 @@ function update() {
     if (maxTargetDist <= 0) {
         gameStatus = "won";
         document.getElementById("messages").style.backgroundColor = "#8888";
-        document.getElementById("messages").innerHTML = "You won! Well done!";
+        document.getElementById("messages").innerHTML = strings.won;
         document.getElementById("messages").style.opacity = 0;
         messageTime = Date.now();
     }
@@ -185,7 +205,7 @@ function update() {
     if (player.posY > maxY) {
         gameStatus = "lost";
         document.getElementById("messages").style.backgroundColor = "#8888";
-        document.getElementById("messages").innerHTML = "Oh, no! You lost. Never mind! Try again!";
+        document.getElementById("messages").innerHTML = strings.lost;
         document.getElementById("messages").style.opacity = 0;
         messageTime = Date.now();
     }

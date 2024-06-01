@@ -196,7 +196,7 @@ function draw() {
     if (gameStatus === "won") {
         ctx.fillStyle = "#ccc8";
         ctx.fillRect(0, 0, canvas.width/50, canvas.height/50);
-        ctx.font = "2px sans-serif";
+        ctx.font = "1px sans-serif";
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillStyle = "black";
@@ -204,7 +204,7 @@ function draw() {
     } else if (gameStatus === "lost") {
         ctx.fillStyle = "#4448";
         ctx.fillRect(0, 0, canvas.width/50, canvas.height/50);
-        ctx.font = "2px sans-serif";
+        ctx.font = "1px sans-serif";
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillStyle = "black";

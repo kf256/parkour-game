@@ -40,8 +40,7 @@ body {
 }
 
 #buttons > * {
-    width: 10vw;
-    height: 10vw;
+    scale: calc(10vw / 100px);
 }
 
 #messages {

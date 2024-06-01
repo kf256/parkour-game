@@ -2,13 +2,7 @@ body {
     overscroll-behavior: contain;
 }
 
-#canvas {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-}
-
-#buttons {
+.fullscreen {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -38,4 +32,8 @@ body {
     position: absolute;
     bottom: 50px;
     right: 150px;
+}
+
+#messages {
+    text-align: center;
 }

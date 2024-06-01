@@ -35,6 +35,9 @@ let jumpSpeed = 7; // speed at the beginning of a jump
 let controlAcceleration = 20; // controls how fast the player can accelerate without jumping
 let maxY = 14; // maximum depth of the player character (bigger Y position means lower height)
 
+// time at which the message appeared
+let messageTime;
+
 // position and size of the target
 let target = {
     posX: 11,
@@ -174,6 +177,8 @@ function update() {
         gameStatus = "won";
         document.getElementById("messages").style.backgroundColor = "#8888";
         document.getElementById("messages").innerHTML = "You won! Well done!";
+        document.getElementById("messages").style.opacity = 0;
+        messageTime = Date.now();
     }
     
     // check if the user lost
@@ -181,6 +186,8 @@ function update() {
         gameStatus = "lost";
         document.getElementById("messages").style.backgroundColor = "#8888";
         document.getElementById("messages").innerHTML = "Oh, no! You lost. Never mind! Try again!";
+        document.getElementById("messages").style.opacity = 0;
+        messageTime = Date.now();
     }
     
     // call update() again as soon as possible
@@ -201,8 +208,13 @@ function draw() {
     ctx.fillStyle = "yellow";
     ctx.fillRect(player.posX, player.posY, player.width, player.height);
     
+    // update the opacity of the message if there is any
+    if (gameStatus === "won" || gameStatus === "lost") {
+        document.getElementById("messages").style.opacity = (Date.now()-messageTime)/1000;
+    }
+    
     // call draw() again for the next frame
-    if (gameStatus === "running") requestAnimationFrame(draw);
+    requestAnimationFrame(draw);
 }
 
 // resize the canvas to fill the entire screen

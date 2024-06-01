@@ -17,26 +17,26 @@ body {
 
 #button_left {
     position: absolute;
-    bottom: 150px;
-    right: 250px;
+    bottom: 15%;
+    right: 25%;
 }
 
 #button_right {
     position: absolute;
-    bottom: 150px;
-    right: 50px;
+    bottom: 15%;
+    right: 5%;
 }
 
 #button_up {
     position: absolute;
-    bottom: 250px;
-    right: 150px;
+    bottom: 25%;
+    right: 15%;
 }
 
 #button_down {
     position: absolute;
-    bottom: 50px;
-    right: 150px;
+    bottom: 5%;
+    right: 15%;
 }
 
 #messages {

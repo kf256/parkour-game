@@ -201,7 +201,7 @@ function draw() {
         ctx.textBaseline = "middle";
         ctx.fillStyle = "black";
         ctx.fillText("You won! Well done!", canvas.width/50/2, canvas.height/50/2);
-    } else if (gameStatus === "won") {
+    } else if (gameStatus === "lost") {
         ctx.fillStyle = "#4448";
         ctx.fillRect(0, 0, canvas.width/50, canvas.height/50);
         ctx.font = "2px sans-serif";

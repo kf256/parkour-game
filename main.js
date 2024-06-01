@@ -15,21 +15,7 @@ let time;
 let delay;
 
 // object containing information about the player character
-let player = {
-    posX: 1,
-    posY: 1,
-    velX: 0,
-    velY: 0,
-    width: 0.9,
-    height: 1.9,
-    touching: {
-        up: false,
-        down: false,
-        left: false,
-        right: false,
-    },
-    climb: false,
-};
+let player;
 
 let gravitation = 10;
 let friction = 3;
@@ -41,12 +27,7 @@ let maxY = 14; // maximum depth of the player character (bigger Y position means
 let messageTime;
 
 // position and size of the target
-let target = {
-    posX: 11,
-    posY: 11,
-    width: 1,
-    height: 1,
-};
+let target;
 
 addEventListener("click", function(evt) {
     switch (gameStatus) {
@@ -111,6 +92,28 @@ function startGame() {
     
     document.getElementById("buttons").style.display = "";
     document.getElementById("menu").style.display = "none";
+    
+    player = {
+        posX: 1,
+        posY: 1,
+        velX: 0,
+        velY: 0,
+        width: 0.9,
+        height: 1.9,
+        touching: {
+            up: false,
+            down: false,
+            left: false,
+            right: false,
+        },
+        climb: false,
+    };
+    target = {
+        posX: 11,
+        posY: 11,
+        width: 1,
+        height: 1,
+    };
     
     // add some obstacles
     new Obstacle( 1,  3,  2,  1);

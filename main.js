@@ -170,16 +170,10 @@ function update() {
     
     // check if the user won
     let maxTargetDist = Math.max(...Object.values(target.dist));
-    if (maxTargetDist <= 0) {
-        console.log("You won! Well done!");
-        gameStatus = "won";
-    }
+    if (maxTargetDist <= 0) gameStatus = "won";
     
     // check if the user lost
-    if (player.posY > maxY) {
-        console.log("Oh, no! You lost. Never mind! Try again!");
-        gameStatus = "lost";
-    }
+    if (player.posY > maxY) gameStatus = "lost";
     
     // call update() again as soon as possible
     if (gameStatus === "running") setTimeout(update, 0);
@@ -198,6 +192,18 @@ function draw() {
     // draw the player character
     ctx.fillStyle = "yellow";
     ctx.fillRect(player.posX, player.posY, player.width, player.height);
+    
+    if (gameStatus === "won") {
+        ctx.fillStyle = "#ccc8";
+        ctx.fillRect(0, 0, canvas.width/50, canvas.height/50);
+        ctx.fillStyle = "black";
+        ctx.fillText("You won! Well done!", canvas.width/50/2, canvas.height/50/2);
+    } else if (gameStatus === "won") {
+        ctx.fillStyle = "#4448";
+        ctx.fillRect(0, 0, canvas.width/50, canvas.height/50);
+        ctx.fillStyle = "black";
+        ctx.fillText("Oh, no! You lost. Never mind! Try again!", canvas.width/50/2, canvas.height/50/2);
+    }
     
     // call draw() again for the next frame
     if (gameStatus === "running") requestAnimationFrame(draw);

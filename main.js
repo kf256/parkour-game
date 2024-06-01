@@ -71,7 +71,10 @@ addEventListener("click", function(evt) {
 });
 
 function drawMenu() {
+    let menu = document.getElementById("menu");
+    
     menu.innerHTML = "";
+    
     let button = document.createElement("button");
     button.innerHTML = "start the game";
     button.style.fontSize = "2vw";
@@ -79,6 +82,7 @@ function drawMenu() {
         gameStatus = "running";
         startGame();
     });
+    menu.appendChild(button);
 }
 
 main();

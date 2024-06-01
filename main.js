@@ -5,7 +5,8 @@ import {strings} from "./strings.js";
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
 
-let gameStatus, gameVisible;
+let gameStatus = "menu";
+let gameVisible;
 
 // time of the last update
 let time;
@@ -47,6 +48,39 @@ let target = {
     height: 1,
 };
 
+addEventListener("click", function(evt) {
+    switch (gameStatus) {
+        case "running":
+            // already managed in control.js
+            break;
+        case "won":
+        case "lost":
+            // check if the animation has finished
+            if (Date.now()-messageTime > 1000) {
+                gameVisible = false;
+                gameStatus = "menu";
+                document.getElementById("buttons").style.display = "none";
+            }
+            break;
+        case "menu":
+            // already managed by drawMenu()
+            break;
+        default:
+            throw "unknown gameStatus: "+gameStatus;
+    }
+});
+
+function drawMenu() {
+    menu.innerHTML = "";
+    let button = document.createElement("button");
+    button.innerHTML = "start the game";
+    button.style.fontSize = "2vw";
+    button.addEventListener("click", function() {
+        gameStatus = "running";
+        startGame();
+    });
+}
+
 main();
 
 function main() {
@@ -58,14 +92,15 @@ function main() {
     // update the size whenever the page is resized
     addEventListener("resize", updateCanvasSize);
     
-    // automatically start the game
-    startGame();
+    // draw the menu
+    menu();
 }
 
 function startGame() {
-    
     gameStatus = "running";
     gameVisible = true;
+    
+    document.getElementById("buttons").style.display = "";
     
     // add some obstacles
     new Obstacle( 1,  3,  2,  1);

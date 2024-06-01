@@ -40,4 +40,5 @@ body {
     align-items: center;
     font-size: 2vw;
     font-weight: bold;
+    text-shadow: 0 0 5px white;
 }

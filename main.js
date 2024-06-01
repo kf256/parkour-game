@@ -107,7 +107,7 @@ function main() {
     update();
     
     // time to start the game: draw the very first frame
-    draw();
+    drawGame();
 }
 
 // this function draws every frame
@@ -218,7 +218,7 @@ function update() {
     // call update() again as soon as possible
     if (updateGame) setTimeout(update, 0);
 }
-function draw() {
+function drawGame() {
     // clear everything that was visible before
     ctx.clearRect(0, 0, canvas.width/50, canvas.height/50);
     
@@ -238,8 +238,8 @@ function draw() {
         document.getElementById("messages").style.opacity = (Date.now()-messageTime)/1000;
     }
     
-    // call draw() again for the next frame
-    if (updateGame) requestAnimationFrame(draw);
+    // call drawGame() again for the next frame
+    if (updateGame) requestAnimationFrame(drawGame);
 }
 
 // resize the canvas to fill the entire screen

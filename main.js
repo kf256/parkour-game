@@ -5,6 +5,8 @@ import {strings} from "./strings.js";
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
 
+let canvasWidth, canvasHeight;
+
 let gameStatus = "menu";
 let gameVisible;
 
@@ -45,7 +47,7 @@ addEventListener("click", function(evt) {
                 document.getElementById("messages").innerHTML = "";
                 document.getElementById("messages").style.backgroundColor = "#0000";
                 document.getElementById("menu").style.display = "";
-                ctx.clearRect(0, 0, canvas.width/50, canvas.height/50);
+                ctx.clearRect(0, 0, canvasWidth, canvasHeight);
             }
             break;
         case "menu":
@@ -261,7 +263,7 @@ function drawGame() {
     if (!gameVisible) return;
     
     // clear everything that was visible before
-    ctx.clearRect(0, 0, canvas.width/50, canvas.height/50);
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     
     // draw the obstacles
     Obstacle.draw(ctx);
@@ -288,6 +290,14 @@ function updateCanvasSize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     
+    // calculate the screen diagonal
+    const screenSize = Math.hypot(canvas.width, canvas.height);
+    
     // scale the contents of the canvas to make drawing easier
-    ctx.scale(50, 50);
+    const scale = screenSize/20;
+    ctx.scale(scale, scale);
+    
+    // update canvasWidth and canvasHeight
+    canvasWidth = Math.ceil(canvas.width/scale);
+    canvasHeight = Math.ceil(canvas.height/scale);
 }

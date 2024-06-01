@@ -17,26 +17,26 @@ body {
 
 #button_left {
     position: absolute;
-    bottom: 15%;
-    right: 25%;
+    bottom: 15vw;
+    right: 25vw;
 }
 
 #button_right {
     position: absolute;
-    bottom: 15%;
-    right: 5%;
+    bottom: 15vw;
+    right: 5vw;
 }
 
 #button_up {
     position: absolute;
-    bottom: 25%;
-    right: 15%;
+    bottom: 25vw;
+    right: 15vw;
 }
 
 #button_down {
     position: absolute;
-    bottom: 5%;
-    right: 15%;
+    bottom: 5vw;
+    right: 15vw;
 }
 
 #buttons > * {

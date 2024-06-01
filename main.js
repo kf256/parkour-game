@@ -60,6 +60,8 @@ addEventListener("click", function(evt) {
                 gameVisible = false;
                 gameStatus = "menu";
                 document.getElementById("buttons").style.display = "none";
+                document.getElementById("messages").innerHTML = "";
+                document.getElementById("messages").style.backgroundColor = "#0000";
             }
             break;
         case "menu":

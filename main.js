@@ -47,9 +47,6 @@ let target = {
     height: 1,
 };
 
-// test
-addEventListener("click", () => player.climb = true);
-
 main();
 
 function main() {

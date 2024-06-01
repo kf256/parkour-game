@@ -59,6 +59,7 @@ addEventListener("click", function(evt) {
             if (Date.now()-messageTime > 1000) {
                 gameVisible = false;
                 gameStatus = "menu";
+                drawMenu();
                 document.getElementById("buttons").style.display = "none";
                 document.getElementById("messages").innerHTML = "";
                 document.getElementById("messages").style.backgroundColor = "#0000";
@@ -145,6 +146,8 @@ function startGame() {
 
 // this function draws every frame
 function updateGame() {
+    if (!gameVisible) return;
+    
     // calculate the time between the last and this update
     delay = Date.now()-time;
     delay /= 1000; // convert to seconds
@@ -249,9 +252,11 @@ function updateGame() {
     }
     
     // call updateGame() again as soon as possible
-    if (gameVisible) setTimeout(updateGame, 0);
+    setTimeout(updateGame, 0);
 }
 function drawGame() {
+    if (!gameVisible) return;
+    
     // clear everything that was visible before
     ctx.clearRect(0, 0, canvas.width/50, canvas.height/50);
     
@@ -272,7 +277,7 @@ function drawGame() {
     }
     
     // call drawGame() again for the next frame
-    if (gameVisible) requestAnimationFrame(drawGame);
+    requestAnimationFrame(drawGame);
 }
 
 // resize the canvas to fill the entire screen

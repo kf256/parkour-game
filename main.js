@@ -1,5 +1,6 @@
 import {arrows} from "./control.js";
 import {Obstacle} from "./obstacle.js";
+import {strings} from "./strings.js";
 
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
@@ -48,23 +49,6 @@ let target = {
 
 // test
 addEventListener("click", () => player.climb = true);
-
-// create the object "strings" that contains various texts in the player's language
-const languages = {};
-languages.en = {title: "Parkour game", won: "You won! Well done!", lost: "Oh, no! You lost. Never mind! Try again!"};
-languages.de = {title: "Parkourspiel", won: "Du hast gewonnen! Gut gemacht!", lost: "Oh, nein! Du hast verloren. Aber das macht nichts! Versuch's doch noch mal!"};
-const strings = {};
-function updateStrings(language) {
-    if (languages[language] === undefined) language = language.slice(0, 2);
-    if (languages[language] === undefined) return;
-    const keys = Object.keys(languages[language]);
-    for (let i = 0; i < keys.length; i++) {
-        strings[keys[i]] = languages[language][keys[i]];
-    }
-}
-for (let i = navigator.languages.length-1; i >= 0; i--) {
-    updateStrings(navigator.languages[i]);
-}
 
 main();
 

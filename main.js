@@ -65,13 +65,12 @@ let levels = [
         
         // add some obstacles
         new Obstacle( 1,  3,  2,  1);
-        new Obstacle( 4,  2,  1,  2);
+        new Obstacle( 2,  0,  1,  3);
+        new Obstacle( 4,  3,  1,  1);
         new Obstacle( 2,  4,  3,  1);
         new Obstacle( 4,  5,  4,  1);
         new Obstacle( 7,  4,  1,  2);
         new Obstacle( 8,  3,  1,  2);
-        new Obstacle( 0,  0,  1, 14);
-        new Obstacle(13,  0,  1, 14);
         new Obstacle( 5,  9,  8,  1);
         new Obstacle( 1, 11,  1,  2);
         new Obstacle(11,  7,  1,  2);

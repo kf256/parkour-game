@@ -277,7 +277,7 @@ function drawGame() {
     
     // set the correct viewing window
     ctx.save();
-    ctx.translate(canvasWidth/2-viewX, canvasHeight/2-viewY);
+    ctx.translate(Math.round(canvasWidth/2-viewX), Math.round(canvasHeight/2-viewY));
     
     // draw the obstacles
     Obstacle.draw(ctx);
@@ -311,7 +311,7 @@ function updateCanvasSize() {
     const screenSize = Math.hypot(canvas.width, canvas.height);
     
     // scale the contents of the canvas to make drawing easier
-    const scale = screenSize/20;
+    const scale = Math.round(screenSize/20);
     ctx.scale(scale, scale);
     
     // update canvasWidth and canvasHeight

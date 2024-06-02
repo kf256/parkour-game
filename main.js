@@ -315,6 +315,6 @@ function updateCanvasSize() {
     ctx.scale(scale, scale);
     
     // update canvasWidth and canvasHeight
-    canvasWidth = Math.ceil(canvas.width/scale);
-    canvasHeight = Math.ceil(canvas.height/scale);
+    canvasWidth = canvas.width/scale;
+    canvasHeight = canvas.height/scale;
 }

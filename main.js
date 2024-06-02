@@ -90,8 +90,6 @@ function main() {
     // set the title of the page
     document.title = strings.title;
     
-    canvas.style.imageRendering = "pixelated";
-    
     // set the correct size of the canvas
     updateCanvasSize();
     // update the size whenever the page is resized

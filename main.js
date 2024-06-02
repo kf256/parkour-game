@@ -113,8 +113,8 @@ function startGame() {
         },
         climb: false,
     };
-    viewX = player.posX;
-    viewY = player.posY;
+    viewX = player.posX+player.width/2;
+    viewY = player.posY+player.height/2;
     
     target = {
         posX: 11,

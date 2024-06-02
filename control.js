@@ -48,26 +48,17 @@ addEventListener("keyup", (evt) => {
     }
 });
 
-let buttons = {
+const buttons = {
     left:  document.getElementById("button_left"),
     right: document.getElementById("button_right"),
     up:    document.getElementById("button_up"),
     down:  document.getElementById("button_down"),
 };
-
-buttons.left .addEventListener("pointerdown",  () => arrows.left  = true);
-buttons.left .addEventListener("pointerup",    () => arrows.left  = false);
-buttons.left .addEventListener("pointerleave", () => arrows.left  = false);
-buttons.left .addEventListener("touchstart",    e => e.preventDefault());
-buttons.right.addEventListener("pointerdown",  () => arrows.right = true);
-buttons.right.addEventListener("pointerup",    () => arrows.right = false);
-buttons.right.addEventListener("pointerleave", () => arrows.right = false);
-buttons.right.addEventListener("touchstart",    e => e.preventDefault());
-buttons.up   .addEventListener("pointerdown",  () => arrows.up    = true);
-buttons.up   .addEventListener("pointerup",    () => arrows.up    = false);
-buttons.up   .addEventListener("pointerleave", () => arrows.up    = false);
-buttons.up   .addEventListener("touchstart",    e => e.preventDefault());
-buttons.down .addEventListener("pointerdown",  () => arrows.down  = true);
-buttons.down .addEventListener("pointerup",    () => arrows.down  = false);
-buttons.down .addEventListener("pointerleave", () => arrows.down  = false);
-buttons.down .addEventListener("touchstart",    e => e.preventDefault());
+const buttonNames = Object.keys(buttons);
+for (let i = 0; i < buttonNames.length; i++) {
+    const name = buttonNames[i];
+    buttons[name].addEventListener("pointerdown",  () => arrows[name] = true);
+    buttons[name].addEventListener("pointerup",    () => arrows[name] = false);
+    buttons[name].addEventListener("pointerleave", () => arrows[name] = false);
+    buttons[name].addEventListener("touchstart",    e => e.preventDefault());
+}

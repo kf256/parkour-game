@@ -7,6 +7,44 @@ const ctx = canvas.getContext("2d");
 
 let canvasWidth, canvasHeight;
 
+let levels = [
+    function() {
+        // position the player
+        player = {
+            posX: 1,
+            posY: 1.1,
+            velX: 0,
+            velY: 0,
+            width: 0.9,
+            height: 1.9,
+            climb: false,
+        };
+        
+        // position the target
+        target = {
+            posX: 11,
+            posY: 11,
+            width: 1,
+            height: 1,
+        };
+        
+        // add some obstacles
+        new Obstacle( 1,  3,  2,  1);
+        new Obstacle( 4,  2,  1,  2);
+        new Obstacle( 2,  4,  3,  1);
+        new Obstacle( 4,  5,  4,  1);
+        new Obstacle( 7,  4,  1,  2);
+        new Obstacle( 8,  3,  1,  2);
+        new Obstacle( 0,  0,  1, 14);
+        new Obstacle(13,  0,  1, 14);
+        new Obstacle( 5,  9,  8,  1);
+        new Obstacle( 1, 11,  1,  2);
+        new Obstacle(11,  7,  1,  2);
+        new Obstacle(12,  5,  1,  4);
+        new Obstacle( 1, 13, 12,  1);
+    },
+];
+
 let gameStatus = "menu";
 let gameVisible = false;
 
@@ -106,45 +144,19 @@ function startGame() {
     document.getElementById("buttons").style.display = "";
     document.getElementById("menu").style.display = "none";
     
-    player = {
-        posX: 1,
-        posY: 1.1,
-        velX: 0,
-        velY: 0,
-        width: 0.9,
-        height: 1.9,
-        touching: {
-            up: false,
-            down: false,
-            left: false,
-            right: false,
-        },
-        climb: false,
+    // load the level
+    level[0]();
+    
+    player.touching = {
+        up: false,
+        down: false,
+        left: false,
+        right: false,
     };
+    
+    // set the center of the view
     viewX = player.posX+player.width/2;
     viewY = player.posY+player.height/2;
-    
-    target = {
-        posX: 11,
-        posY: 11,
-        width: 1,
-        height: 1,
-    };
-    
-    // add some obstacles
-    new Obstacle( 1,  3,  2,  1);
-    new Obstacle( 4,  2,  1,  2);
-    new Obstacle( 2,  4,  3,  1);
-    new Obstacle( 4,  5,  4,  1);
-    new Obstacle( 7,  4,  1,  2);
-    new Obstacle( 8,  3,  1,  2);
-    new Obstacle( 0,  0,  1, 14);
-    new Obstacle(13,  0,  1, 14);
-    new Obstacle( 5,  9,  8,  1);
-    new Obstacle( 1, 11,  1,  2);
-    new Obstacle(11,  7,  1,  2);
-    new Obstacle(12,  5,  1,  4);
-    new Obstacle( 1, 13, 12,  1);
     
     // calculate target.borders
     target.borders = {

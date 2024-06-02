@@ -149,7 +149,7 @@ function drawMenu() {
     for (let level = 0; level < levels.length; level++) {
         // add a starting button to the menu
         const button = document.createElement("button");
-        button.innerHTML = strings.start+level;
+        button.innerHTML = strings.start+(level+1);
         button.style.fontSize = "2vw";
         button.addEventListener("click", () => {
             gameStatus = "running";

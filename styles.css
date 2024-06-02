@@ -39,11 +39,6 @@ body {
     right: 15vw;
 }
 
-#buttons > * {
-    width: 10vw;
-    height: 10vw;
-}
-
 #messages {
     display: flex;
     justify-content: center;

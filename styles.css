@@ -17,26 +17,26 @@ body {
 
 #button_left {
     position: absolute;
-    bottom: 15vw;
-    right: 25vw;
+    bottom: 30vmin;
+    right: 50vmin;
 }
 
 #button_right {
     position: absolute;
-    bottom: 15vw;
-    right: 5vw;
+    bottom: 30vmin;
+    right: 10vmin;
 }
 
 #button_up {
     position: absolute;
-    bottom: 25vw;
-    right: 15vw;
+    bottom: 50vmin;
+    right: 30vmin;
 }
 
 #button_down {
     position: absolute;
-    bottom: 5vw;
-    right: 15vw;
+    bottom: 10vmin;
+    right: 30vmin;
 }
 
 #messages {

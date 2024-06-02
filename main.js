@@ -146,15 +146,17 @@ function drawMenu() {
     menu.style.display = "";
     menu.innerHTML = "";
     
-    // add a starting button to the menu
-    const button = document.createElement("button");
-    button.innerHTML = strings.start;
-    button.style.fontSize = "2vw";
-    button.addEventListener("click", function() {
-        gameStatus = "running";
-        startGame();
-    });
-    menu.appendChild(button);
+    for (let level = 0; level < levels.length; level++) {
+        // add a starting button to the menu
+        const button = document.createElement("button");
+        button.innerHTML = strings.start+level;
+        button.style.fontSize = "2vw";
+        button.addEventListener("click", () => {
+            gameStatus = "running";
+            startGame(level);
+        });
+        menu.appendChild(button);
+    }
 }
 
 main();
@@ -172,7 +174,7 @@ function main() {
     drawMenu();
 }
 
-function startGame() {
+function startGame(level) {
     gameStatus = "running";
     gameVisible = true;
     
@@ -180,7 +182,7 @@ function startGame() {
     document.getElementById("menu").style.display = "none";
     
     // load the level
-    levels[0]();
+    levels[level]();
     
     player.touching = {
         up: false,

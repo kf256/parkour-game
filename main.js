@@ -100,7 +100,7 @@ function startGame() {
     
     player = {
         posX: 1,
-        posY: 1,
+        posY: 1.1,
         velX: 0,
         velY: 0,
         width: 0.9,

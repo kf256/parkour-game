@@ -15,10 +15,6 @@ body {
     pointer-events: auto;
 }
 
-#canvas {
-    image-rendering: pixelated;
-}
-
 #button_left {
     position: absolute;
     bottom: 30vmin;

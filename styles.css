@@ -39,10 +39,6 @@ body {
     right: 15vw;
 }
 
-#buttons > * {
-    scale: calc(10vw / 100px);
-}
-
 #messages {
     display: flex;
     justify-content: center;

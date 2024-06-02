@@ -41,17 +41,8 @@ addEventListener("click", function(evt) {
             break;
         case "won":
         case "lost":
-            // check if the animation has finished
-            if (Date.now()-messageTime > 1000) {
-                gameVisible = false;
-                gameStatus = "menu";
-                drawMenu();
-                document.getElementById("buttons").style.display = "none";
-                document.getElementById("messages").innerHTML = "";
-                document.getElementById("messages").style.backgroundColor = "#0000";
-                document.getElementById("menu").style.display = "";
-                ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-            }
+            // go to the menu if the animation has finished
+            if (Date.now()-messageTime > 1000) drawMenu();
             break;
         case "menu":
             // already managed by drawMenu()
@@ -62,11 +53,28 @@ addEventListener("click", function(evt) {
 });
 
 function drawMenu() {
-    let menu = document.getElementById("menu");
+    gameStatus = "menu";
     
+    // stop the game
+    gameVisible = false;
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+    
+    // hide the control buttons
+    const buttons = document.getElementById("buttons");
+    buttons.style.display = "none";
+    
+    // remove the won or lost message
+    const messages = document.getElementById("messages");
+    messages.innerHTML = "";
+    messages.style.backgroundColor = "#0000";
+    
+    // clear the menu div and show it
+    const menu = document.getElementById("menu");
+    menu.style.display = "";
     menu.innerHTML = "";
     
-    let button = document.createElement("button");
+    // add a starting button to the menu
+    const button = document.createElement("button");
     button.innerHTML = strings.start;
     button.style.fontSize = "2vw";
     button.addEventListener("click", function() {

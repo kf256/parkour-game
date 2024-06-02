@@ -43,7 +43,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2vw;
+    text-align: center;
+    font-size: 5vw;
     font-weight: bold;
     text-shadow: 0 0 5px white;
 }

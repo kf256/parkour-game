@@ -31,6 +31,9 @@ let messageTime;
 // position and size of the target
 let target;
 
+// center of the viewing window
+let viewX, viewY;
+
 addEventListener("click", function(evt) {
     switch (gameStatus) {
         case "running":
@@ -110,6 +113,9 @@ function startGame() {
         },
         climb: false,
     };
+    viewX = player.posX;
+    viewY = player.posY;
+    
     target = {
         posX: 11,
         posY: 11,
@@ -227,6 +233,10 @@ function updateGame() {
         }
     }
     
+    // move the center the viewing window closer to the player character
+    viewX += (player.posX-viewX)*delay;
+    viewY += (player.posY-viewY)*delay;
+    
     // calculate the distances to the target
     target.dist = {
         left:  target.borders.left-(player.posX+player.width),
@@ -265,6 +275,10 @@ function drawGame() {
     // clear everything that was visible before
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     
+    // set the correct viewing window
+    ctx.save();
+    ctx.translate(canvasWidth/2-viewX, canvasHeight/2-viewY);
+    
     // draw the obstacles
     Obstacle.draw(ctx);
     
@@ -275,6 +289,9 @@ function drawGame() {
     // draw the player character
     ctx.fillStyle = "yellow";
     ctx.fillRect(player.posX, player.posY, player.width, player.height);
+    
+    // reset the translation
+    ctx.restore();
     
     // update the opacity of the message if there is any
     if (gameStatus === "won" || gameStatus === "lost") {

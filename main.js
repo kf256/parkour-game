@@ -145,7 +145,7 @@ function startGame() {
     document.getElementById("menu").style.display = "none";
     
     // load the level
-    level[0]();
+    levels[0]();
     
     player.touching = {
         up: false,

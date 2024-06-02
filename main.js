@@ -67,6 +67,7 @@ let levels = [
         new Obstacle( 1,  3,  2,  1);
         new Obstacle( 2,  0,  1,  3);
         new Obstacle( 4,  3,  1,  1);
+        new Obstacle( 5,  2,  1,  2);
         new Obstacle( 2,  4,  3,  1);
         new Obstacle( 4,  5,  4,  1);
         new Obstacle( 7,  4,  1,  2);

@@ -8,7 +8,7 @@ const ctx = canvas.getContext("2d");
 let canvasWidth, canvasHeight;
 
 let gameStatus = "menu";
-let gameVisible;
+let gameVisible = false;
 
 // time of the last update
 let time;

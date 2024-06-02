@@ -234,8 +234,8 @@ function updateGame() {
     }
     
     // move the center the viewing window closer to the player character
-    viewX += (player.posX+player.width/2-viewX)*delay;
-    viewY += (player.posY+player.height/2-viewY)*delay;
+    viewX += (player.posX+player.width/2-viewX)*delay*2;
+    viewY += (player.posY+player.height/2-viewY)*delay*2;
     
     // calculate the distances to the target
     target.dist = {

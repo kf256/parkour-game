@@ -134,9 +134,9 @@ let delay;
 // object containing information about the player character
 let player;
 
-let gravitation = 10;
+let gravitation = 20;
 let friction = 3;
-let jumpSpeed = 7; // speed at the beginning of a jump
+let jumpSpeed = 10; // speed at the beginning of a jump
 let controlAcceleration = 20; // controls how fast the player can accelerate without jumping
 let maxY = 14; // maximum depth of the player character (bigger Y position means lower height)
 

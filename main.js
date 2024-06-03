@@ -74,6 +74,52 @@ let levels = [
         new Obstacle(11,  5,  1,  4);
         new Obstacle( 0, 13, 12,  1);
     },
+    function() {
+        // position the player
+        player = {
+            posX: 0,
+            posY: 11.1,
+            velX: 0,
+            velY: 0,
+            width: 0.9,
+            height: 1.9,
+            climb: false,
+        };
+        
+        // position the target
+        target = {
+            posX: 7.1,
+            posY: 2.1,
+            width: 0.8,
+            height: 0.8,
+        };
+        
+        // add some obstacles
+        new Obstacle( 0, 13, 1, 1);
+        new Obstacle( 4, 13, 1, 1);
+        new Obstacle( 8, 13, 1, 1);
+        new Obstacle(12, 13, 1, 1);
+        new Obstacle(16, 13, 1, 1);
+        new Obstacle(17, 11, 1, 1);
+        new Obstacle(18,  9, 1, 1);
+        new Obstacle(15,  8, 1, 1);
+        new Obstacle(14,  6, 1, 1);
+        new Obstacle(13,  4, 1, 1);
+        new Obstacle(18,  5, 1, 1);
+        new Obstacle(19,  3, 1, 1);
+        new Obstacle(13,  3, 1, 1);
+        new Obstacle(12,  3, 1, 1);
+        new Obstacle( 9,  5, 1, 1);
+        new Obstacle( 9,  8, 3, 1);
+        new Obstacle( 6,  8, 1, 1);
+        new Obstacle( 2,  8, 1, 1);
+        new Obstacle( 1,  6, 1, 1);
+        new Obstacle( 0,  4, 1, 1);
+        new Obstacle( 3,  3, 1, 1);
+        new Obstacle( 5,  2, 1, 1);
+        new Obstacle( 5,  3, 4, 1);
+        new Obstacle( 8,  0, 1, 3);
+    },
 ];
 
 let gameStatus = "menu";

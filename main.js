@@ -35,14 +35,11 @@ let levels = [
         new Obstacle( 4,  6,  4,  1);
         new Obstacle( 7,  5,  1,  2);
         new Obstacle( 8,  4,  1,  2);
-        new Obstacle( 5, 10,  8,  1);
-        new Obstacle( 1, 12,  1,  2);
-        new Obstacle(11,  8,  1,  2);
-        new Obstacle(12,  6,  1,  4);
-        new Obstacle( 0,  0,  1, 15); // left margin
-        new Obstacle(13,  0,  1, 15); // right margin
-        new Obstacle( 1,  0, 12,  1); // top margin
-        new Obstacle( 1, 14, 12,  1); // bottom margin
+        new Obstacle( 2,  9,  8,  1);
+        new Obstacle( 0,  0,  1, 13); // left margin
+        new Obstacle(10,  0,  1, 13); // right margin
+        new Obstacle( 1,  0,  9,  1); // top margin
+        new Obstacle( 1, 12,  9,  1); // bottom margin
     },
     function() {
         // position the player

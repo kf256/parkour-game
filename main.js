@@ -110,7 +110,7 @@ let levels = [
         new Obstacle(13,  3, 1, 1);
         new Obstacle(12,  3, 1, 1);
         new Obstacle( 9,  5, 1, 1);
-        new Obstacle( 9,  8, 3, 1);
+        new Obstacle( 8,  8, 4, 1);
         new Obstacle( 6,  8, 1, 1);
         new Obstacle( 2,  8, 1, 1);
         new Obstacle( 1,  6, 1, 1);

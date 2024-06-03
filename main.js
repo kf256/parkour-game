@@ -29,8 +29,8 @@ let levels = [
         };
         
         // add some obstacles
+        new Obstacle( 4,  1,  1,  2);
         new Obstacle( 1,  4,  2,  1);
-        new Obstacle( 4,  3,  1,  2);
         new Obstacle( 2,  5,  3,  1);
         new Obstacle( 4,  6,  4,  1);
         new Obstacle( 7,  5,  1,  2);

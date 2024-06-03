@@ -57,17 +57,16 @@ let levels = [
         
         // position the target
         target = {
-            posX: 1,
-            posY: 4,
-            width: 1,
-            height: 1,
+            posX: 1.1,
+            posY: 4.1,
+            width: 0.8,
+            height: 0.8,
         };
         
         // add some obstacles
         new Obstacle( 1,  0,  1,  3);
-        new Obstacle( 3,  3,  1,  1);
         new Obstacle( 4,  2,  1,  2);
-        new Obstacle( 2,  4,  2,  1);
+        new Obstacle( 2,  4,  1,  1);
         new Obstacle( 0,  5,  7,  1);
         new Obstacle( 6,  4,  1,  2);
         new Obstacle( 7,  3,  1,  2);

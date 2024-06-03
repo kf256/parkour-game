@@ -81,4 +81,7 @@ export class Obstacle {
     static checkCollisions(character) { // calculate collisions of a character with obstacles
         for (let i = 0; i < this.list.length; i++) this.list[i].checkCollisions(character);
     }
+    static remove() { // remove all obstacles
+        this.list = [];
+    }
 }

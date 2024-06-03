@@ -113,7 +113,10 @@ addEventListener("click", function(evt) {
         case "won":
         case "lost":
             // go to the menu if the animation has finished
-            if (Date.now()-messageTime > 1000) drawMenu();
+            if (Date.now()-messageTime > 1000) {
+                endGame();
+                drawMenu();
+            }
             break;
         case "menu":
             // already managed by drawMenu()
@@ -123,12 +126,13 @@ addEventListener("click", function(evt) {
     }
 });
 
-function drawMenu() {
-    gameStatus = "menu";
-    
-    // stop the game
+function endGame() {
+    // stop updating the game
     gameVisible = false;
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+    
+    // remove the obstacles
+    Obstacle.remove();
     
     // hide the control buttons
     const buttons = document.getElementById("buttons");
@@ -138,6 +142,10 @@ function drawMenu() {
     const messages = document.getElementById("messages");
     messages.innerHTML = "";
     messages.style.backgroundColor = "#0000";
+}
+
+function drawMenu() {
+    gameStatus = "menu";
     
     // clear the menu div and show it
     const menu = document.getElementById("menu");

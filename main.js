@@ -12,7 +12,7 @@ let levels = [
         // position the player
         player = {
             posX: 1,
-            posY: 1.1,
+            posY: 2.1,
             velX: 0,
             velY: 0,
             width: 0.9,
@@ -23,7 +23,7 @@ let levels = [
         // position the target
         target = {
             posX: 11,
-            posY: 11,
+            posY: 12,
             width: 1,
             height: 1,
         };

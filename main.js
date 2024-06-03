@@ -22,10 +22,10 @@ let levels = [
         
         // position the target
         target = {
-            posX: 11,
-            posY: 12,
-            width: 1,
-            height: 1,
+            posX: 9.1,
+            posY: 11.1,
+            width: 0.8,
+            height: 0.8,
         };
         
         // add some obstacles

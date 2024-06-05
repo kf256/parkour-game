@@ -48,24 +48,28 @@ export class Obstacle {
         // see which side of the obstacle the character collided with
         switch (maxDist) {
             case dist.up: {
+                if (character.velY < 0) break;
                 character.posY += dist.up;
                 character.velY = 0;
                 character.touching.up = true;
                 break;
             }
             case dist.down: {
+                if (character.velY > 0) break;
                 character.posY -= dist.down;
                 character.velY = 0;
                 character.touching.down = true;
                 break;
             }
             case dist.left: {
+                if (character.velX < 0) break;
                 character.posX += dist.left;
                 character.velX = 0;
                 character.touching.left = true;
                 break;
             }
             case dist.right: {
+                if (character.velX > 0) break;
                 character.posX -= dist.right;
                 character.velX = 0;
                 character.touching.right = true;

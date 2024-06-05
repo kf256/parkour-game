@@ -158,12 +158,12 @@ let levels = [
         };
         
         // add some obstacles
-        new Obstacle( 1,  7,  7,  1);
+        new Obstacle( 1,  7,  6,  1);
         new Obstacle( 3,  4,  1,  2);
         new Obstacle( 5,  2,  1,  2);
-        new Obstacle( 9,  5,  1,  2);
-        new Obstacle(11,  3,  1,  2);
-        new Obstacle(12,  0,  1,  2);
+        new Obstacle( 8,  5,  1,  2);
+        new Obstacle(10,  3,  1,  2);
+        new Obstacle(11,  0,  1,  2);
         new Obstacle( 0, 13,  1,  1);
         new Obstacle( 1, 13,  1,  1);
         new Obstacle( 3, 13,  1,  1);

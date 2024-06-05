@@ -44,6 +44,35 @@ let levels = [
     function() {
         // position the player
         player = {
+            posX: 4,
+            posY: 1.1,
+            velX: 0,
+            velY: 0,
+            width: 0.9,
+            height: 1.9,
+            climb: false,
+        };
+        
+        // position the target
+        target = {
+            posX: 6.1,
+            posY: 2.1,
+            width: 0.8,
+            height: 0.8,
+        };
+        
+        // add some obstacles
+        new Obstacle( 5,  0,  1,  2);
+        new Obstacle( 2,  3,  3,  1);
+        new Obstacle( 6,  3,  3,  1);
+        new Obstacle( 0,  5,  1,  2);
+        new Obstacle(10,  5,  1,  2);
+        new Obstacle( 1,  6,  4,  1);
+        new Obstacle( 6,  6,  4,  1);
+    },
+    function() {
+        // position the player
+        player = {
             posX: 13,
             posY: 0.1,
             velX: 0,

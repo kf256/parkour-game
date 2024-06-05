@@ -65,10 +65,10 @@ let levels = [
         new Obstacle( 5,  0,  1,  2);
         new Obstacle( 2,  3,  3,  1);
         new Obstacle( 6,  3,  3,  1);
-        new Obstacle( 0,  5,  1,  2);
-        new Obstacle(10,  5,  1,  2);
-        new Obstacle( 1,  6,  4,  1);
-        new Obstacle( 6,  6,  4,  1);
+        new Obstacle( 0,  5,  1,  3);
+        new Obstacle(10,  5,  1,  3);
+        new Obstacle( 1,  7,  4,  1);
+        new Obstacle( 6,  7,  4,  1);
     },
     function() {
         // position the player

@@ -173,9 +173,9 @@ let levels = [
         new Obstacle(21, 13,  1,  1);
         new Obstacle(23, 12,  1,  1);
         new Obstacle(24, 10,  1,  1);
-        new Obstacle(20,  9,  1,  1);
-        new Obstacle(18,  8,  1,  1);
-        new Obstacle(17,  6,  1,  1);
+        new Obstacle(20,  8,  1,  1);
+        new Obstacle(18,  7,  1,  1);
+        new Obstacle(17,  5,  1,  1);
         new Obstacle(21,  4,  1,  1);
         new Obstacle(23,  3,  1,  1);
         new Obstacle(24,  1,  1,  1);

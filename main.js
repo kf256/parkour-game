@@ -44,7 +44,7 @@ let levels = [
     function() {
         // position the player
         player = {
-            posX: 4,
+            posX: 5,
             posY: 1.1,
             velX: 0,
             velY: 0,
@@ -55,7 +55,7 @@ let levels = [
         
         // position the target
         target = {
-            posX: 6.1,
+            posX: 7.1,
             posY: 2.1,
             width: 0.8,
             height: 0.8,
@@ -65,9 +65,9 @@ let levels = [
         new Obstacle( 6,  0,  1,  2);
         new Obstacle( 3,  3,  7,  1);
         new Obstacle( 0,  5,  1,  3);
-        new Obstacle(11,  5,  1,  3);
+        new Obstacle(12,  5,  1,  3);
         new Obstacle( 1,  7,  4,  1);
-        new Obstacle( 7,  7,  4,  1);
+        new Obstacle( 8,  7,  4,  1);
     },
     function() {
         // position the player

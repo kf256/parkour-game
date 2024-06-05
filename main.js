@@ -151,7 +151,7 @@ let levels = [
         
         // position the target
         target = {
-            posX: 21.1,
+            posX: 24.1,
             posY: 0.1,
             width: 0.8,
             height: 0.8,
@@ -163,7 +163,7 @@ let levels = [
         new Obstacle( 5,  2,  1,  2);
         new Obstacle( 8,  5,  1,  2);
         new Obstacle(10,  3,  1,  2);
-        new Obstacle(11,  0,  1,  2);
+        new Obstacle(12,  0,  1,  2);
         new Obstacle( 0, 13,  1,  1);
         new Obstacle( 1, 13,  1,  1);
         new Obstacle( 3, 13,  1,  1);
@@ -171,13 +171,15 @@ let levels = [
         new Obstacle(10, 13,  1,  1);
         new Obstacle(15, 13,  1,  1);
         new Obstacle(21, 13,  1,  1);
-        new Obstacle(24, 11,  1,  1);
-        new Obstacle(21,  9,  1,  1);
-        new Obstacle(24,  7,  1,  1);
-        new Obstacle(21,  5,  1,  1);
-        new Obstacle(24,  3,  1,  1);
-        new Obstacle(21,  1,  1,  1);
-        new Obstacle(20,  0,  1,  1);
+        new Obstacle(23, 12,  1,  1);
+        new Obstacle(24, 10,  1,  1);
+        new Obstacle(20,  9,  1,  1);
+        new Obstacle(18,  8,  1,  1);
+        new Obstacle(17,  6,  1,  1);
+        new Obstacle(21,  4,  1,  1);
+        new Obstacle(23,  3,  1,  1);
+        new Obstacle(24,  1,  1,  1);
+        new Obstacle(25,  0,  1,  1);
     },
     function() {
         // position the player

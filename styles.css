@@ -1,10 +1,12 @@
 body {
     overscroll-behavior: contain;
+    overflow: hidden;
 }
 
 .fullscreen {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     pointer-events: none;
-    touch-action: none;
     position: absolute;
     top: 0px;
     left: 0px;

@@ -255,7 +255,7 @@ let target;
 // center of the viewing window
 let viewX, viewY;
 
-addEventListener("click", function(evt) {
+document.addEventListener("click", function(evt) {
     switch (gameStatus) {
         case "running":
             // already managed in control.js
@@ -324,7 +324,7 @@ function main() {
     // set the correct size of the canvas
     updateCanvasSize();
     // update the size whenever the page is resized
-    addEventListener("resize", updateCanvasSize);
+    document.addEventListener("resize", updateCanvasSize);
     
     // draw the menu
     drawMenu();

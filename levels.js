@@ -170,50 +170,6 @@ export const levels = [
     function() {
         // position the player
         player = {
-            posX: 4,
-            posY: 5.1,
-            velX: 0,
-            velY: 0,
-            width: 0.9,
-            height: 1.9,
-            climb: false,
-        };
-        
-        // position the target
-        target = {
-            posX: 24.1,
-            posY: 0.1,
-            width: 0.8,
-            height: 0.8,
-        };
-        
-        // add some obstacles
-        new Obstacle( 1,  7,  6,  1);
-        new Obstacle( 3,  4,  1,  2);
-        new Obstacle( 5,  2,  1,  2);
-        new Obstacle( 8,  5,  1,  2);
-        new Obstacle(10,  3,  1,  2);
-        new Obstacle(12,  0,  1,  2);
-        new Obstacle( 0, 13,  1,  1);
-        new Obstacle( 1, 13,  1,  1);
-        new Obstacle( 3, 13,  1,  1);
-        new Obstacle( 6, 13,  1,  1);
-        new Obstacle(10, 13,  1,  1);
-        new Obstacle(15, 13,  1,  1);
-        new Obstacle(21, 13,  1,  1);
-        new Obstacle(23, 12,  1,  1);
-        new Obstacle(24, 10,  1,  1);
-        new Obstacle(20,  8,  1,  1);
-        new Obstacle(18,  7,  1,  1);
-        new Obstacle(17,  5,  1,  1);
-        new Obstacle(21,  4,  1,  1);
-        new Obstacle(23,  3,  1,  1);
-        new Obstacle(24,  1,  1,  1);
-        new Obstacle(25,  0,  1,  1);
-    },
-    function() {
-        // position the player
-        player = {
             posX: 0,
             posY: 11.1,
             velX: 0,
@@ -255,5 +211,49 @@ export const levels = [
         new Obstacle( 5,  2, 1, 1);
         new Obstacle( 5,  3, 4, 1);
         new Obstacle( 8,  0, 1, 3);
+    },
+    function() {
+        // position the player
+        player = {
+            posX: 4,
+            posY: 5.1,
+            velX: 0,
+            velY: 0,
+            width: 0.9,
+            height: 1.9,
+            climb: false,
+        };
+        
+        // position the target
+        target = {
+            posX: 24.1,
+            posY: 0.1,
+            width: 0.8,
+            height: 0.8,
+        };
+        
+        // add some obstacles
+        new Obstacle( 1,  7,  6,  1);
+        new Obstacle( 3,  4,  1,  2);
+        new Obstacle( 5,  2,  1,  2);
+        new Obstacle( 8,  5,  1,  2);
+        new Obstacle(10,  3,  1,  2);
+        new Obstacle(12,  0,  1,  2);
+        new Obstacle( 0, 13,  1,  1);
+        new Obstacle( 1, 13,  1,  1);
+        new Obstacle( 3, 13,  1,  1);
+        new Obstacle( 6, 13,  1,  1);
+        new Obstacle(10, 13,  1,  1);
+        new Obstacle(15, 13,  1,  1);
+        new Obstacle(21, 13,  1,  1);
+        new Obstacle(23, 12,  1,  1);
+        new Obstacle(24, 10,  1,  1);
+        new Obstacle(20,  8,  1,  1);
+        new Obstacle(18,  7,  1,  1);
+        new Obstacle(17,  5,  1,  1);
+        new Obstacle(21,  4,  1,  1);
+        new Obstacle(23,  3,  1,  1);
+        new Obstacle(24,  1,  1,  1);
+        new Obstacle(25,  0,  1,  1);
     },
 ];

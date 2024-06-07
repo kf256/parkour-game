@@ -118,7 +118,7 @@ function startGame(level) {
     document.getElementById("menu").style.display = "none";
     
     // load the level
-    eval(`${levels[level]}`);
+    eval(`(${f.toString()})()`);
     
     player.touching = {
         up: false,

@@ -104,7 +104,7 @@ function main() {
     // set the correct size of the canvas
     updateCanvasSize();
     // update the size whenever the page is resized
-    document.addEventListener("resize", updateCanvasSize);
+    window.addEventListener("resize", updateCanvasSize);
     
     // draw the menu
     drawMenu();
